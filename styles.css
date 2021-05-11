@@ -778,8 +778,7 @@ ul.ul-edu {
 
 ul.ul-edu li {
   position: relative;
-  /* padding: 0px 15px 4px 3px; */
-  padding: 0px 0px 0px 0px;
+  padding: 0px 15px 4px 3px;
 }
 
 ul.ul-edu li .description p {
@@ -848,7 +847,8 @@ ul.share {
 
 ul.share li {
   display: inline-flex;
-  margin-right: 5px;
+  /* margin-right: 5px; */
+  margin-right: 10px;
 }
 
 ul.share li:last-of-type {
