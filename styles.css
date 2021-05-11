@@ -70,9 +70,14 @@ p {
 }
 
 /* Lists */
-ul, ol, dl {
+ul, ol {
   margin-top: 0;
   margin-bottom: 1rem;
+}
+
+dl {
+  margin-top: 0;
+  margin-bottom: 0;
 }
 
 /* Navigation bar text */
