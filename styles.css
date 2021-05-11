@@ -778,6 +778,7 @@ ul.ul-edu {
 
 ul.ul-edu li {
   position: relative;
+  /* padding: 0px 15px 4px 3px; */
   padding: 0px 15px 4px 3px;
 }
 
