@@ -934,7 +934,11 @@ article {
 }
 
 .article-header {
-  position: relative; /* Required for caption positioning */
+  /*position: relative; /* Required for caption positioning */
+  position: absolute;
+  bottom: 100px;
+  right: 50px;
+  text-align: center;
   clear: both;
 }
 
