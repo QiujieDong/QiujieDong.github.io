@@ -847,8 +847,7 @@ ul.share {
 
 ul.share li {
   display: inline-flex;
-  /* margin-right: 5px; */
-  margin-right: 10px;
+  margin-right: 5px;
 }
 
 ul.share li:last-of-type {
