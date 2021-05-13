@@ -1243,6 +1243,12 @@ article .article-metadata {
   overflow: hidden;
 }
 
+#container-news {
+  display: block;
+  position: relative;
+  overflow: hidden;
+}
+
 .li-cite-author {
   font-size: 1em;
   color: inherit;
