@@ -761,11 +761,11 @@ ul.network-icon {
 }
 
 .network-icon li:hover {
-  transform: scale(1.2)
+  transform: scale(1)
 }
 
 .big-icon {
-  font-size: 10rem;
+  font-size: 2rem;
 }
 
 ul.ul-interests li {
