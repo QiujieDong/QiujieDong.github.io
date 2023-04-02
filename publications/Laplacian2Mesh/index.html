@@ -86,24 +86,22 @@
 				</div>
 				<div class="venue"> IEEE Transactions on Visualization and Computer Graphics (CCF-A) </div>
 			</div>
-						<div class="section downloads">
-					<center>
-						<ul style="padding-left: 0">
-							<li class="grid">
-								<div class="griditem">
-									<a href="https://arxiv.org/abs/2202.00307"><img src="../Assets/images/pdf.png"></a><br/>
-									<a href="https://arxiv.org/abs/2202.00307">Paper</a>
-								</div>
-							</li>
-							<li class="grid">
-								<div class="griditem">
-									<a href="https://github.com/QiujieDong/Laplacian2Mesh"><img src="../Assets/images/github.png"></a><br/>
-									<a href="https://github.com/QiujieDong/Laplacian2Mesh">Code</a>
+				<div class="section downloads" style="text-align:center">
+					<ul style="padding-left: 0">
+						<li class="grid">
+							<div class="griditem">
+								<a href="https://arxiv.org/abs/2202.00307"><img src="../Assets/images/pdf.png"></a><br/>
+								<a href="https://arxiv.org/abs/2202.00307">Paper</a>
+							</div>
+						</li>
+						<li class="grid">
+							<div class="griditem">
+								<a href="https://github.com/QiujieDong/Laplacian2Mesh"><img src="../Assets/images/github.png"></a><br/>
+								<a href="https://github.com/QiujieDong/Laplacian2Mesh">Code</a>
 
-								</div>
-							</li>
-						</ul>
-					</center>
+							</div>
+						</li>
+					</ul>
 				</div>
 
 
@@ -151,15 +149,12 @@
 					Even if the input mesh contains a limited number of defects (e.g., non-manifold), the representation still works.
 				</p>
 
-				<center>
-					<div class="row" style="margin-bottom:5px">
+				<div class="row" style="margin-bottom:5px">
 					<div class="col" style="text-align:center">
 						<img class="thumbnail" src="figs/pipeline.png" style="width:85%; margin-bottom:20px">
+						<p>Pipeline of Laplacian2Mesh.</p>
 					</div>
-					<p>Pipeline of Laplacian2Mesh.
-					</p>
-					</div>
-				</center>
+				</div>
 				<p>
 					Our network pipeline for coping with the mesh classification and segmentation tasks. Given a 3D mesh as the input,
 					we precompute the extrinsic and intrinsic geometric features and project them into the spectral domain w.r.t.
@@ -170,15 +165,12 @@
 					by the segmentation block.
 				</p>
 
-				<center>
-					<div class="row" style="margin-bottom:5px">
+				<div class="row" style="margin-bottom:5px">
 					<div class="col" style="text-align:center">
 						<img class="thumbnail" src="figs/pooling_unpooling.png" style="width:85%; margin-bottom:20px">
+						<p>Pooling and Unpooling of Laplacian2Mesh.</p>
 					</div>
-					<p>Pooling and Unpooling of Laplacian2Mesh.
-					</p>
-					</div>
-				</center>
+				</div>
 				<p>
 					The Laplacian pooling and unpooling operations transform the spectral-based features between different resolutions,
 					where the pooling operation proceeds from a finer level to a coarser level while the unpooling operation does the opposite.
