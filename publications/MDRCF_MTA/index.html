@@ -173,9 +173,11 @@
 				<hr class="smooth">
 				This page is maintained by <a href="https://qiujiedong.github.io/" target="_blank">Qiujie Dong</a>.
 				Latest updated on
-				<script>
-					document.write(new Date().toLocaleDateString())
-				</script>
+				<script type="text/javascript">
+					var m = document.lastModified;
+					var p = m.length - 9;
+					document.write(m.substring(p, 0) + ".");
+            	</script>
 			</div>
 		</div>
 	</div>

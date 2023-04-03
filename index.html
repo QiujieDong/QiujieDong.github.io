@@ -728,8 +728,12 @@
         <p class="powered-by">
             This page is maintained by Qiujie Dong.
             Latest updated on
-            <script>
-                document.write(new Date().toLocaleDateString())
+            <script type="text/javascript">
+					var m = document.lastModified;
+					var p = m.length - 9;
+					// document.writeln("<left>");
+					document.write(m.substring(p, 0) + ".");
+					// document.writeln("</left>");
             </script>
         </p>
     </footer>
