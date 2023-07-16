@@ -29,7 +29,7 @@
     <link rel="stylesheet"
           href="//fonts.googleapis.com/css?family=Montserrat:400,700|Roboto:400,400italic,700|Roboto+Mono">
 
-    <link rel="stylesheet" href="/styles.css">
+    <link rel="stylesheet" href="/css/styles.css">
 
     <link rel="alternate" href="https://qiujiedong.github.io/index.xml" type="application/rss+xml"
           title="Qiujie Dong&#39;s Homepage">
@@ -55,13 +55,72 @@
 
 <body id="top" data-spy="scroll" data-target="#navbar-main" data-offset="71" style="font-family:'Times New Roman'">
 
+<nav class="navbar navbar-light fixed-top navbar-expand-lg py-0" id="navbar-main">
+    <div class="container">
+        <a class="navbar-brand">Qiujie Dong&#39;s Homepage</a>
 
-<section id="top name" class="home-section wg-blank"
-         style="background-color: white;padding: 30px 0px 10px 0px; font-family:'Times New Roman'">
+        <div class="collapse navbar-collapse" id="navbar">
+
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="#" data-target="#name" >
+                        <span>Home</span>
+                    </a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" href="#biography" data-target="#biography">
+                        <span>Biography</span>
+                    </a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" href="#news" data-target="#news">
+                        <span>News</span>
+                    </a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" href="#publications" data-target="#publications">
+                        <span>Publications</span>
+                    </a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" href="#property" data-target="#property">
+                        <span>IP</span>
+                    </a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" href="#awards" data-target="#awards">
+                        <span>Awards</span>
+                    </a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" href="#experiences" data-target="#experiences">
+                        <span>Experiences</span>
+                    </a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" href="#services" data-target="#services">
+                        <span>Services</span>
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+
+<section class="home-section wg-blank"
+         style="background-color: white;padding: 50px 0px 10px 0px; font-family:'Times New Roman'">
     <div class="container">
         <div class="row">
             <div class="col-12 section-heading">
-                <h3>Qiujie Dong (董秋杰)</h3>
+                <h3  style="font-family: FangSong">Qiujie Dong (董秋杰)</h3>
                 <hr class="hr-double">
             </div>
         </div>
@@ -69,7 +128,7 @@
 </section>
 
 
-<section id="about" class="home-section wg-about" style="background-color: white;padding: 0px 0px 0px 0px;">
+<section class="home-section wg-about" style="background-color: white;padding: 0px 0px 0px 0px;">
     <div class="container">
         <div class="row" itemprop="author" itemscope itemtype="http://schema.org/Person"
              itemref="person-email person-address">
@@ -94,7 +153,8 @@
                     <i class="ai ai-google-scholar big-icon"></i>
                 </a>
                 &nbsp
-                <a itemprop="sameAs" href="https://www.researchgate.net/profile/Qiujie-Dong" itemprop="url" rel="noopener">
+                <a itemprop="sameAs" href="https://www.researchgate.net/profile/Qiujie-Dong" itemprop="url"
+                   rel="noopener">
                     <i class="ai ai-researchgate big-icon"></i>
                 </a>
             </div>
@@ -106,8 +166,9 @@
     </div>
 </section>
 
-
-<section id="biography" class="home-section wg-blank" style="background-color: white;padding: 70px 0px 10px 0px;">
+<!--set virtual anchor-->
+<a id="biography" style=" position: relative;top: -60px;display: block;height: 0;overflow: hidden;"></a>
+<section class="home-section wg-blank" style="background-color: white;padding: 70px 0px 10px 0px;">
     <div class="container">
         <div class="row">
             <div class="col-12 section-heading">
@@ -119,13 +180,23 @@
                 <p style="text-align:justify; text-justify:inter-ideograph;">I am now a Ph.D. candidate at the School of
                     Computer Science and Technology,
                     Shandong University (<a href="https://www.en.sdu.edu.cn/"
-                                            target="_blank" rel="noopener" rel="noopener">SDU</a>), under the supervision of Prof. <a
-                            href="http://irc.cs.sdu.edu.cn/~shiqing/index.html" target="_blank" rel="noopener" rel="noopener">Shiqing Xin</a>. Prior to that, I received the Joint-M.Eng. from the Fujian Institute of Research on the Structure of
+                                            target="_blank" rel="noopener" rel="noopener">SDU</a>), under the
+                    supervision of Prof. <a
+                            href="http://irc.cs.sdu.edu.cn/~shiqing/index.html" target="_blank" rel="noopener"
+                            rel="noopener">Shiqing Xin</a>. Prior to that, I received the Joint-M.Eng. from the Fujian
+                    Institute of Research on the Structure of
                     Matter, Chinese Academy of Sciences (<a href="http://english.fjirsm.cas.cn/"
-                                                            target="_blank" rel="noopener" rel="noopener">FJIRSM</a>)-North University of
+                                                            target="_blank" rel="noopener" rel="noopener">FJIRSM</a>)-North
+                    University of
                     China in 2020, working with
-                    Prof. <a href="https://dblp.org/pid/29/4695.html" target="_blank" rel="noopener" rel="noopener">Shengzong Zhou</a>&rsquo;s
+                    Prof. <a href="https://dblp.org/pid/29/4695.html" target="_blank" rel="noopener" rel="noopener">Shengzong
+                        Zhou</a>&rsquo;s
                     team.
+                </p>
+
+                <p>
+                    My research interests include Geometric Deep Learning, Feature Extraction of Meshes, Surface
+                    Reconstruction from Point clouds, and Object Tracking.
                 </p>
 
                 <!---p>
@@ -145,7 +216,8 @@
 </section>
 
 
-<section id="news" class="home-section wg-blank" style="background-color: white;padding: 30px 0px 10px 0px;">
+<a id="news" style=" position: relative;top: -100px;display: block;height: 0;overflow: hidden;"></a>
+<section class="home-section wg-blank" style="background-color: white;padding: 30px 0px 10px 0px;">
     <div class="container">
         <div class="row">
             <div class="col-12 section-heading">
@@ -191,9 +263,9 @@
                     </li>
                 </ul>
 
-<!--                <div class="see-all">-->
-<!--                    <a href="/news/">See all news<i class="fas fa-angle-right"></i></a>-->
-<!--                </div>-->
+                <!--                <div class="see-all">-->
+                <!--                    <a href="/news/">See all news<i class="fas fa-angle-right"></i></a>-->
+                <!--                </div>-->
 
             </div>
         </div>
@@ -201,37 +273,8 @@
 </section>
 
 
-<section id="interests" class="home-section wg-blank" style="background-color: white;padding: 30px 0px 10px 0px;">
-    <div class="container">
-        <div class="row">
-            <div class="col-12 section-heading">
-                <h3>Research Interests</h3>
-                <hr>
-            </div>
-
-            <div class="col-12 col-lg-12">
-                <ul>
-                    <li>
-                        Geometric Deep Learning
-                    </li>
-                    <li>
-                        Feature Extraction of Meshes
-                    </li>
-                    <li>
-                        Surface Reconstruction from Point clouds
-                    </li>
-                    <li>
-                        Object Tracking
-                    </li>
-                </ul>
-
-            </div>
-        </div>
-    </div>
-</section>
-
-
-<section id="publications" class="home-section wg-pages"
+<a id="publications" style=" position: relative;top: -80px;display: block;height: 0;overflow: hidden;"></a>
+<section class="home-section wg-pages"
          style="background-color: white;padding: 50px 0px 20px 0px;">
     <div class="container">
         <div class="row">
@@ -252,7 +295,8 @@
 
                         <div class="col-lg-9">
                             <h3 class="article-title mb-0 mt-0" itemprop="name">
-                                <a href="https://arxiv.org/abs/2306.05246" itemprop="url" rel="noopener">Mesh-MLP: An all-MLP Architecture for Mesh Classification
+                                <a href="https://arxiv.org/abs/2306.05246" itemprop="url" rel="noopener">Mesh-MLP: An
+                                    all-MLP Architecture for Mesh Classification
                                     and Semantic Segmentation</a>
                             </h3>
 
@@ -273,22 +317,28 @@
                                                     Qiujie Dong
                                                 </strong>,
                                             </a>
-                                            <a href="https://xrvitd.github.io/index.html" target="_blank" rel="noopener" rel="noopener">
+                                            <a href="https://xrvitd.github.io/index.html" target="_blank" rel="noopener"
+                                               rel="noopener">
                                                 Rui Xu,
                                             </a>
-                                            <a href="https://github.com/gongxiaoran" target="_blank" rel="noopener" rel="noopener">
+                                            <a href="https://github.com/gongxiaoran" target="_blank" rel="noopener"
+                                               rel="noopener">
                                                 Xiaoran Gong,
                                             </a>
-                                            <a href="https://bearprin.com/" target="_blank" rel="noopener" rel="noopener">
+                                            <a href="https://bearprin.com/" target="_blank" rel="noopener"
+                                               rel="noopener">
                                                 Zixiong Wang,
                                             </a>
-                                            <a href="https://ieeexplore.ieee.org/author/37088955375" target="_blank" rel="noopener">
+                                            <a href="https://ieeexplore.ieee.org/author/37088955375" target="_blank"
+                                               rel="noopener">
                                                 Shuangmin Chen,
                                             </a>
-                                            <a href="http://irc.cs.sdu.edu.cn/~shiqing/index.html" target="_blank" rel="noopener">
+                                            <a href="http://irc.cs.sdu.edu.cn/~shiqing/index.html" target="_blank"
+                                               rel="noopener">
                                                 Shiqing Xin,
                                             </a>
-                                            <a href="http://irc.cs.sdu.edu.cn/~chtu/index.html" target="_blank" rel="noopener">
+                                            <a href="http://irc.cs.sdu.edu.cn/~chtu/index.html" target="_blank"
+                                               rel="noopener">
                                                 Changhe Tu.
                                             </a>
                                         </span>
@@ -297,14 +347,14 @@
                             </div>
 
                             <div class="btn-links">
-<!--                                <a class="btn btn-outline-primary my-1 mr-1 btn-sm"-->
-<!--                                   href="/publications/Laplacian2Mesh/" target="_blank" rel="noopener" rel="noopener">Project</a>-->
+                                <!--                                <a class="btn btn-outline-primary my-1 mr-1 btn-sm"-->
+                                <!--                                   href="/publications/Laplacian2Mesh/" target="_blank" rel="noopener" rel="noopener">Project</a>-->
 
                                 <a class="btn btn-outline-primary my-1 mr-1 btn-sm"
                                    href="https://arxiv.org/abs/2306.05246" itemprop="url" rel="noopener">Paper</a>
 
-<!--                                <a class="btn btn-outline-primary my-1 mr-1 btn-sm"-->
-<!--                                   href="https://github.com/QiujieDong/Laplacian2Mesh" target="_blank" rel="noopener" rel="noopener">Code</a>-->
+                                <!--                                <a class="btn btn-outline-primary my-1 mr-1 btn-sm"-->
+                                <!--                                   href="https://github.com/QiujieDong/Laplacian2Mesh" target="_blank" rel="noopener" rel="noopener">Code</a>-->
                             </div>
                         </div>
                     </div>
@@ -321,14 +371,15 @@
 
                         <div class="col-lg-9">
                             <h3 class="article-title mb-0 mt-0" itemprop="name">
-                                <a href="https://bearprin.com/publications/neuralimls23wang/" itemprop="url" rel="noopener">Neural-IMLS: Learning Implicit
+                                <a href="https://bearprin.com/publications/neuralimls23wang/" itemprop="url"
+                                   rel="noopener">Neural-IMLS: Learning Implicit
                                     Moving Least-Squares for Surface Reconstruction from Unoriented Point clouds</a>
                             </h3>
 
                             <div class="article-style" itemprop="articleBody" style="font-size:18px;">
                                 <em>
                                     IEEE Transactions on Visualization and Computer Graphics <strong>(IEEE
-                                        TVCG)</strong>,
+                                    TVCG)</strong>,
                                 </em>
                                 2023. [CCF-A]
                             </div>
@@ -350,19 +401,24 @@
                                                     Qiujie Dong
                                                 </strong>,
                                             </a>
-                                            <a href="https://scholar.google.com/citations?user=CTDs13EAAAAJ&hl" target="_blank" rel="noopener">
+                                            <a href="https://scholar.google.com/citations?user=CTDs13EAAAAJ&hl"
+                                               target="_blank" rel="noopener">
                                                 Junjie Gao,
                                             </a>
-                                            <a href="https://ieeexplore.ieee.org/author/37088955375" target="_blank" rel="noopener">
+                                            <a href="https://ieeexplore.ieee.org/author/37088955375" target="_blank"
+                                               rel="noopener">
                                                 Shuangmin Chen,
                                             </a>
-                                            <a href="http://irc.cs.sdu.edu.cn/~shiqing/index.html" target="_blank" rel="noopener">
+                                            <a href="http://irc.cs.sdu.edu.cn/~shiqing/index.html" target="_blank"
+                                               rel="noopener">
                                                 Shiqing Xin,
                                             </a>
-                                            <a href="http://irc.cs.sdu.edu.cn/~chtu/index.html" target="_blank" rel="noopener">
+                                            <a href="http://irc.cs.sdu.edu.cn/~chtu/index.html" target="_blank"
+                                               rel="noopener">
                                                 Changhe Tu,
                                             </a>
-                                            <a href="https://engineering.tamu.edu/cse/profiles/Wang-Wenping.html" target="_blank" rel="noopener">
+                                            <a href="https://engineering.tamu.edu/cse/profiles/Wang-Wenping.html"
+                                               target="_blank" rel="noopener">
                                                 Wenping Wang.
                                             </a>
                                         </span>
@@ -372,7 +428,8 @@
 
                             <div class="btn-links">
                                 <a class="btn btn-outline-primary my-1 mr-1 btn-sm"
-                                   href="https://bearprin.com/publications/neuralimls23wang/" itemprop="url" rel="noopener">Project</a>
+                                   href="https://bearprin.com/publications/neuralimls23wang/" itemprop="url"
+                                   rel="noopener">Project</a>
 
                                 <a class="btn btn-outline-primary my-1 mr-1 btn-sm"
                                    href="https://arxiv.org/abs/2109.04398" itemprop="url" rel="noopener">Paper</a>
@@ -385,7 +442,6 @@
                 </div>
 
 
-
                 <div class="media stream-item" itemscope itemtype="http://schema.org/ScholarlyArticle">
                     <div class="media-body row">
                         <div class="col-lg-3" style="padding: 10px 0px 10px 20px;">
@@ -396,14 +452,15 @@
 
                         <div class="col-lg-9">
                             <h3 class="article-title mb-0 mt-0" itemprop="name">
-                                <a href="/publications/Laplacian2Mesh/" itemprop="url" rel="noopener">Laplacian2Mesh: Laplacian-Based
+                                <a href="/publications/Laplacian2Mesh/" itemprop="url" rel="noopener">Laplacian2Mesh:
+                                    Laplacian-Based
                                     Mesh Understanding</a>
                             </h3>
 
                             <div class="article-style" itemprop="articleBody" style="font-size:18px;">
                                 <em>
                                     IEEE Transactions on Visualization and Computer Graphics <strong>(IEEE
-                                        TVCG)</strong>,
+                                    TVCG)</strong>,
                                 </em>
                                 2023. [CCF-A]
                             </div>
@@ -424,22 +481,28 @@
                                             <a href="https://manyili12345.github.io/" target="_blank" rel="noopener">
                                                 Manyi Li,
                                             </a>
-                                            <a href="https://scholar.google.com/citations?user=CTDs13EAAAAJ&hl" target="_blank" rel="noopener">
+                                            <a href="https://scholar.google.com/citations?user=CTDs13EAAAAJ&hl"
+                                               target="_blank" rel="noopener">
                                                 Junjie Gao,
                                             </a>
-                                            <a href="https://ieeexplore.ieee.org/author/37088955375" target="_blank" rel="noopener">
+                                            <a href="https://ieeexplore.ieee.org/author/37088955375" target="_blank"
+                                               rel="noopener">
                                                 Shuangmin Chen,
                                             </a>
-                                            <a href="https://ieeexplore.ieee.org/author/37086874041" target="_blank" rel="noopener">
+                                            <a href="https://ieeexplore.ieee.org/author/37086874041" target="_blank"
+                                               rel="noopener">
                                                 Zhenyu Shu,
                                             </a>
-                                            <a href="http://irc.cs.sdu.edu.cn/~shiqing/index.html" target="_blank" rel="noopener">
+                                            <a href="http://irc.cs.sdu.edu.cn/~shiqing/index.html" target="_blank"
+                                               rel="noopener">
                                                 Shiqing Xin,
                                             </a>
-                                            <a href="http://irc.cs.sdu.edu.cn/~chtu/index.html" target="_blank" rel="noopener">
+                                            <a href="http://irc.cs.sdu.edu.cn/~chtu/index.html" target="_blank"
+                                               rel="noopener">
                                                 Changhe Tu,
                                             </a>
-                                            <a href="https://engineering.tamu.edu/cse/profiles/Wang-Wenping.html" target="_blank" rel="noopener">
+                                            <a href="https://engineering.tamu.edu/cse/profiles/Wang-Wenping.html"
+                                               target="_blank" rel="noopener">
                                                 Wenping Wang.
                                             </a>
                                         </span>
@@ -493,12 +556,14 @@
                                                     Qiujie Dong
                                                 </strong>,
                                             </a>
-                                            <a href="https://scholar.google.com/citations?user=Jll9EQYAAAAJ&hl" target="_blank" rel="noopener">
+                                            <a href="https://scholar.google.com/citations?user=Jll9EQYAAAAJ&hl"
+                                               target="_blank" rel="noopener">
                                                 Xuedong He,
                                             </a>
                                             Haiyan Ge,
                                             Qin Liu,
-                                            <a href="https://scholar.google.com/citations?user=mECfaHkAAAAJ&hl" target="_blank" rel="noopener">
+                                            <a href="https://scholar.google.com/citations?user=mECfaHkAAAAJ&hl"
+                                               target="_blank" rel="noopener">
                                                 Aifu Han,
                                             </a>
                                             <a href="https://dblp.org/pid/29/4695.html" target="_blank" rel="noopener">
@@ -525,376 +590,142 @@
 </section>
 
 
-<section id="patent" class="home-section wg-blank" style="background-color: white;padding: 30px 0px 10px 0px;">
+<a id="property" style=" position: relative;top: -100px;display: block;height: 0;overflow: hidden;"></a>
+<section class="home-section wg-blank" style="background-color: white;padding: 30px 0px 10px 0px;">
     <div class="container">
         <div class="row">
             <div class="col-12 section-heading">
-                <h3>Invention Patents & Software Copyrights</h3>
+                <h3>Intellectual Property</h3>
                 <hr>
             </div>
 
-            <div class="col-12 col-lg-12">
-                <div class="media stream-item" itemscope itemtype="http://schema.org/ScholarlyArticle">
-                    <div class="media-body row">
-                        <div class="col-lg-3" style="padding: 10px 0px 10px 45px;">
-                            <img src="/publications/Assets/images/figure_CNIPA.png" itemprop="image" style="width: 60%; height:auto;">
-                        </div>
+            <p class="col-12 section-heading" style="font-size: 1.1rem; padding-left: 40px;">
+                <strong>Invention Patents:</strong>
+            </p>
 
-                        <div class="col-lg-9">
-                            <h3 class="article-title mb-0 mt-0" itemprop="name">
-                                Model Updating Method and Device for Object Tracking
-                            </h3>
+            <div style="padding-left: 60px;">
+                <ul>
+                    <li style="margin-top: -0.8em">
+                        <strong>Model Updating Method and Device for Object Tracking</strong>
+                        <p class="btn-links" style="display: inline-block; padding-left: 10px">
+                            <a class="btn btn-outline-primary my-1 mr-1 btn-sm"
+                               href="/publications/Patent_ZL201910316876X/ZL201910316876X.pdf" itemprop="url"
+                               rel="noopener">Patent</a>
 
-                            <div class="article-style" itemprop="articleBody" style="font-size:18px;">
-                                <em>
-                                    Patent of the Invention in China,
-                                </em>
-                                ZL 2019 1 0316876.X.
-                            </div>
+                            <a class="btn btn-outline-primary my-1 mr-1 btn-sm"
+                               href="/publications/Patent_ZL201910316876X/certificate_ZL201910316876X.pdf"
+                               itemprop="url" rel="noopener">Certificate</a>
+                        </p>
+                        <p style="font-size: 0.75rem; margin-top: -1.5em">
+                            Qiujie Dong, Shengzong Zhou, Haiyan Ge, Xuedong He, Qin Liu.
+                        </p>
+                    </li>
 
-                            <div class="stream-meta article-metadata">
-                                <div itemprop="author">
-                                    <span itemscope itemprop="author" itemtype="http://schema.org/Person">
-                                        <span itemprop="name">
-                                            <a href="https://qiujiedong.github.io/" itemprop="url" rel="noopener">
-                                                <strong style="font-size:18px;">
-                                                    Qiujie Dong
-                                                </strong>,
-                                            </a>
-                                            <a href="https://dblp.org/pid/29/4695.html" target="_blank" rel="noopener">
-                                                Shengzong Zhou,
-                                            </a>
-                                            Haiyan Ge,
-                                            <a href="https://scholar.google.com/citations?user=Jll9EQYAAAAJ&hl" target="_blank" rel="noopener">
-                                                Xuedong He,
-                                            </a>
-                                            Qin Liu.
-                                        </span>
-                                    </span>
-                                </div>
-                            </div>
+                    <li style="margin-top: -0.8em">
+                        <strong>Adaptive Merging Complementary Learners for Visual Tracking Based on Probabilistic
+                            Model</strong>
+                        <p class="btn-links" style="display: inline-block; padding-left: 10px">
+                            <a class="btn btn-outline-primary my-1 mr-1 btn-sm"
+                               href="/publications/Patent_ZL2019101968224/ZL2019101968224.pdf" itemprop="url"
+                               rel="noopener">Patent</a>
 
-                            <div class="btn-links">
-                                <a class="btn btn-outline-primary my-1 mr-1 btn-sm"
-                                   href="/publications/Patent_ZL201910316876X/ZL201910316876X.pdf" itemprop="url" rel="noopener">Patent</a>
+                            <a class="btn btn-outline-primary my-1 mr-1 btn-sm"
+                               href="/publications/Patent_ZL2019101968224/certificate_ZL2019101968224.pdf"
+                               itemprop="url" rel="noopener">Certificate</a>
+                        </p>
+                        <p style="font-size: 0.75rem; margin-top: -1.5em">
+                            Qiujie Dong, Shengzong Zhou, Xuedong He, Haiyan Ge.
+                        </p>
+                    </li>
 
-                                <a class="btn btn-outline-primary my-1 mr-1 btn-sm"
-                                   href="/publications/Patent_ZL201910316876X/certificate_ZL201910316876X.pdf"
-                                   itemprop="url" rel="noopener">Certificate</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                    <li style="margin-top: -0.8em">
+                        <strong>Footprint identification and gait detection method and device based on deep
+                            learning</strong>
+                        <p class="btn-links" style="display: inline-block; padding-left: 10px">
+                            <a class="btn btn-outline-primary my-1 mr-1 btn-sm"
+                               href="/publications/Patent_ZL2018111915962/ZL2018111915962.pdf" itemprop="url"
+                               rel="noopener">Patent</a>
 
+                            <a class="btn btn-outline-primary my-1 mr-1 btn-sm"
+                               href="/publications/Patent_ZL2018111915962/certificate_ZL2018111915962.pdf"
+                               itemprop="url" rel="noopener">Certificate</a>
+                        </p>
+                        <p style="font-size: 0.75rem; margin-top: -1.5em">
+                            Qiujie Dong, Shengzong Zhou, Aifu Han.
+                        </p>
+                    </li>
 
-                <div class="media stream-item" itemscope itemtype="http://schema.org/ScholarlyArticle">
-                    <div class="media-body row">
-                        <div class="col-lg-3" style="padding: 10px 0px 10px 45px;">
-                            <img src="/publications/Assets/images/figure_CNIPA.png" itemprop="image" style="width: 60%; height:auto;">
-                        </div>
+                    <li style="margin-top: -0.8em">
+                        <strong>A method and system for intelligent robot route planning and returning along the
+                            original route</strong>
+                        <p class="btn-links" style="display: inline-block; padding-left: 10px">
+                            <a class="btn btn-outline-primary my-1 mr-1 btn-sm"
+                               href="/publications/Patent_ZL2018100394660/ZL2018100394660.pdf" itemprop="url"
+                               rel="noopener">Patent</a>
 
-                        <div class="col-lg-9">
-                            <h3 class="article-title mb-0 mt-0" itemprop="name">
-                                Adaptive Merging Complementary Learners for Visual Tracking Based on Probabilistic Model
-                            </h3>
+                            <a class="btn btn-outline-primary my-1 mr-1 btn-sm"
+                               href="/publications/Patent_ZL2018100394660/certificate_ZL2018100394660.pdf"
+                               itemprop="url" rel="noopener">Certificate</a>
+                        </p>
+                        <p style="font-size: 0.75rem; margin-top: -1.5em">
+                            Aifu Han, Shengzong Zhou, Qiujie Dong, Jie Huang, Haiyan Ge.
+                        </p>
+                    </li>
 
-                            <div class="article-style" itemprop="articleBody" style="font-size:18px;">
-                                <em>
-                                    Patent of the Invention in China,
-                                </em>
-                                ZL 2019 1 0196822.4.
-                            </div>
+                </ul>
+            </div>
 
+            <p class="col-12 section-heading" style="font-size: 1.1rem; padding-left: 40px;">
+                <strong>Software Copyrights:</strong>
+            </p>
 
-                            <div class="stream-meta article-metadata">
-                                <div itemprop="author">
-                                    <span itemscope itemprop="author" itemtype="http://schema.org/Person">
-                                        <span itemprop="name">
-                                            <a href="https://qiujiedong.github.io/" itemprop="url" rel="noopener">
-                                                <strong style="font-size:18px;">
-                                                    Qiujie Dong
-                                                </strong>,
-                                            </a>
-                                            <a href="https://dblp.org/pid/29/4695.html" target="_blank" rel="noopener">
-                                                Shengzong Zhou,
-                                            </a>
-                                            <a href="https://scholar.google.com/citations?user=Jll9EQYAAAAJ&hl" target="_blank" rel="noopener">
-                                                Xuedong He,
-                                            </a>
-                                            Haiyan Ge.
-                                        </span>
-                                    </span>
-                                </div>
-                            </div>
+            <div style="padding-left: 60px;">
+                <ul>
+                    <li style="margin-top: -0.8em">
+                        <strong>Probabilistic Model-Based Adaptive Fusion Complementary Learning Tracking
+                            System</strong>
+                        <p class="btn-links" style="display: inline-block; padding-left: 10px">
+                            <a class="btn btn-outline-primary my-1 mr-1 btn-sm"
+                               href="/publications/ccopyright/ccopyright_2019SR0577095.pdf"
+                               itemprop="url" rel="noopener">Certificate</a>
+                        </p>
+                        <p style="font-size: 0.75rem; margin-top: -1.5em">
+                            North University of China, Qiujie Dong, Shengzong Zhou, Xuedong He, Haiyan Ge.
+                        </p>
+                    </li>
 
-                            <div class="btn-links">
-                                <a class="btn btn-outline-primary my-1 mr-1 btn-sm"
-                                   href="/publications/Patent_ZL2019101968224/ZL2019101968224.pdf" itemprop="url"
-                                   rel="noopener">Patent</a>
+                    <li style="margin-top: -0.8em">
+                        <strong>Diabetes Risk Screening and Consultation Assistance System</strong>
+                        <p class="btn-links" style="display: inline-block; padding-left: 10px">
+                            <a class="btn btn-outline-primary my-1 mr-1 btn-sm"
+                               href="/publications/ccopyright/ccopyright_2019SR0291607.pdf"
+                               itemprop="url" rel="noopener">Certificate</a>
+                        </p>
+                        <p style="font-size: 0.75rem; margin-top: -1.5em">
+                            Haiyan Ge, Qiujie Dong.
+                        </p>
+                    </li>
 
-                                <a class="btn btn-outline-primary my-1 mr-1 btn-sm"
-                                   href="/publications/Patent_ZL2019101968224/certificate_ZL2019101968224.pdf"
-                                   itemprop="url" rel="noopener">Certificate</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-
-                <div class="media stream-item" itemscope itemtype="http://schema.org/ScholarlyArticle">
-                    <div class="media-body row">
-                        <div class="col-lg-3" style="padding: 10px 0px 10px 45px;">
-                            <img src="/publications/Assets/images/figure_CNIPA.png" itemprop="image" style="width: 60%; height:auto;">
-                        </div>
-
-                        <div class="col-lg-9">
-                            <h3 class="article-title mb-0 mt-0" itemprop="name">
-                                Footprint identification and gait detection method and device based on deep learning
-                            </h3>
-
-                            <div class="article-style" itemprop="articleBody" style="font-size:18px;">
-                                <em>
-                                    Patent of the Invention in China,
-                                </em>
-                                ZL 2018 1 1191596.2.
-                            </div>
-
-
-                            <div class="stream-meta article-metadata">
-                                <div itemprop="author">
-                                    <span itemscope itemprop="author" itemtype="http://schema.org/Person">
-                                        <span itemprop="name">
-                                            <a href="https://qiujiedong.github.io/" itemprop="url" rel="noopener">
-                                                <strong style="font-size:18px;">
-                                                    Qiujie Dong
-                                                </strong>,
-                                            </a>
-                                            <a href="https://dblp.org/pid/29/4695.html" target="_blank" rel="noopener">
-                                                Shengzong Zhou,
-                                            </a>
-                                            <a href="https://scholar.google.com/citations?user=mECfaHkAAAAJ&hl" target="_blank" rel="noopener">
-                                                Aifu Han.
-                                            </a>
-                                        </span>
-                                    </span>
-                                </div>
-                            </div>
-
-                            <div class="btn-links">
-                                <a class="btn btn-outline-primary my-1 mr-1 btn-sm"
-                                   href="/publications/Patent_ZL2018111915962/ZL2018111915962.pdf" itemprop="url" rel="noopener">Patent</a>
-
-                                <a class="btn btn-outline-primary my-1 mr-1 btn-sm"
-                                   href="/publications/Patent_ZL2018111915962/certificate_ZL2018111915962.pdf"
-                                   itemprop="url" rel="noopener">Certificate</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-
-                <div class="media stream-item" itemscope itemtype="http://schema.org/ScholarlyArticle">
-                    <div class="media-body row">
-                        <div class="col-lg-3" style="padding: 10px 0px 10px 45px;">
-                            <img src="/publications/Assets/images/figure_CNIPA.png" itemprop="image" style="width: 60%; height:auto;">
-                        </div>
-
-                        <div class="col-lg-9">
-                            <h3 class="article-title mb-0 mt-0" itemprop="name">
-                                A method and system for intelligent robot route planning and returning along the original route
-                            </h3>
-
-                            <div class="article-style" itemprop="articleBody" style="font-size:18px;">
-                                <em>
-                                    Patent of the Invention in China,
-                                </em>
-                                ZL 2018 1 0039466.0.
-                            </div>
-
-
-                            <div class="stream-meta article-metadata">
-                                <div itemprop="author">
-                                    <span itemscope itemprop="author" itemtype="http://schema.org/Person">
-                                        <span itemprop="name">
-                                            <a href="https://scholar.google.com/citations?user=mECfaHkAAAAJ&hl" target="_blank" rel="noopener">
-                                                Aifu Han.
-                                            </a>
-                                            <a href="https://dblp.org/pid/29/4695.html" target="_blank" rel="noopener">
-                                                Shengzong Zhou,
-                                            </a>
-                                            <a href="https://qiujiedong.github.io/" itemprop="url" rel="noopener">
-                                                <strong style="font-size:18px;">
-                                                    Qiujie Dong
-                                                </strong>,
-                                            </a>
-                                            Jie Huang,
-                                            Haiyan Ge.
-                                        </span>
-                                    </span>
-                                </div>
-                            </div>
-
-                            <div class="btn-links">
-                                <a class="btn btn-outline-primary my-1 mr-1 btn-sm"
-                                   href="/publications/Patent_ZL2018100394660/ZL2018100394660.pdf" itemprop="url" rel="noopener">Patent</a>
-
-                                <a class="btn btn-outline-primary my-1 mr-1 btn-sm"
-                                   href="/publications/Patent_ZL2018100394660/certificate_ZL2018100394660.pdf"
-                                   itemprop="url" rel="noopener">Certificate</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-
-                <div class="media stream-item" itemscope itemtype="http://schema.org/ScholarlyArticle">
-                    <div class="media-body row">
-                        <div class="col-lg-3" style="padding: 5px 0px 10px 45px;">
-                            <img src="/publications/Assets/images/ccopyright.png" itemprop="image" style="width: 60%; height:auto;">
-                        </div>
-
-                        <div class="col-lg-9">
-                            <h3 class="article-title mb-0 mt-0" itemprop="name">
-                                Probabilistic Model-Based Adaptive Fusion Complementary Learning Tracking System
-                            </h3>
-
-                            <div class="article-style" itemprop="articleBody" style="font-size:18px;">
-                                <em>
-                                    Software Copyright in China,
-                                </em>
-                                2019SR0577095.
-                            </div>
-
-
-                            <div class="stream-meta article-metadata">
-                                <div itemprop="author">
-                                    <span itemscope itemprop="author" itemtype="http://schema.org/Person">
-                                        <span itemprop="name">
-                                            North University of China,
-                                            <a href="https://qiujiedong.github.io/" itemprop="url" rel="noopener">
-                                                <strong style="font-size:18px;">
-                                                    Qiujie Dong
-                                                </strong>,
-                                            </a>
-                                            <a href="https://dblp.org/pid/29/4695.html" target="_blank" rel="noopener">
-                                                Shengzong Zhou,
-                                            </a>
-                                            <a href="https://scholar.google.com/citations?user=Jll9EQYAAAAJ&hl" target="_blank" rel="noopener">
-                                                Xuedong He,
-                                            </a>
-                                            Haiyan Ge.
-                                        </span>
-                                    </span>
-                                </div>
-                            </div>
-
-                            <div class="btn-links">
-                                <a class="btn btn-outline-primary my-1 mr-1 btn-sm"
-                                   href="/publications/ccopyright/ccopyright_2019SR0577095.pdf"
-                                   itemprop="url" rel="noopener">Certificate</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-
-                <div class="media stream-item" itemscope itemtype="http://schema.org/ScholarlyArticle">
-                    <div class="media-body row">
-                        <div class="col-lg-3" style="padding: 5px 0px 10px 45px;">
-                            <img src="/publications/Assets/images/ccopyright.png" itemprop="image" style="width: 60%; height:auto;">
-                        </div>
-
-                        <div class="col-lg-9">
-                            <h3 class="article-title mb-0 mt-0" itemprop="name">
-                                Diabetes Risk Screening and Consultation Assistance System
-                            </h3>
-
-                            <div class="article-style" itemprop="articleBody" style="font-size:18px;">
-                                <em>
-                                    Software Copyright in China,
-                                </em>
-                                2019SR0291607.
-                            </div>
-
-
-                            <div class="stream-meta article-metadata">
-                                <div itemprop="author">
-                                    <span itemscope itemprop="author" itemtype="http://schema.org/Person">
-                                        <span itemprop="name">
-                                            Haiyan Ge,
-                                            <a href="https://qiujiedong.github.io/" itemprop="url" rel="noopener">
-                                                <strong style="font-size:18px;">
-                                                    Qiujie Dong
-                                                </strong>.
-                                            </a>
-                                        </span>
-                                    </span>
-                                </div>
-                            </div>
-
-                            <div class="btn-links">
-                                <a class="btn btn-outline-primary my-1 mr-1 btn-sm"
-                                   href="/publications/ccopyright/ccopyright_2019SR0291607.pdf"
-                                   itemprop="url" rel="noopener">Certificate</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-
-                <div class="media stream-item" itemscope itemtype="http://schema.org/ScholarlyArticle">
-                    <div class="media-body row">
-                        <div class="col-lg-3" style="padding: 5px 0px 10px 45px;">
-                            <img src="/publications/Assets/images/ccopyright.png" itemprop="image" style="width: 60%; height:auto;">
-                        </div>
-
-                        <div class="col-lg-9">
-                            <h3 class="article-title mb-0 mt-0" itemprop="name">
-                                Random Roll Call System for Middle School Teachers
-                            </h3>
-
-                            <div class="article-style" itemprop="articleBody" style="font-size:18px;">
-                                <em>
-                                    Software Copyright in China,
-                                </em>
-                                2018SR1046302.
-                            </div>
-
-
-                            <div class="stream-meta article-metadata">
-                                <div itemprop="author">
-                                    <span itemscope itemprop="author" itemtype="http://schema.org/Person">
-                                        <span itemprop="name">
-                                            <a href="https://qiujiedong.github.io/" itemprop="url" rel="noopener">
-                                                <strong style="font-size:18px;">
-                                                    Qiujie Dong
-                                                </strong>,
-                                            </a>
-                                            <a href="https://dblp.org/pid/29/4695.html" target="_blank" rel="noopener">
-                                                Shengzong Zhou,
-                                            </a>
-                                            Haiyan Ge.
-                                        </span>
-                                    </span>
-                                </div>
-                            </div>
-
-                            <div class="btn-links">
-                                <a class="btn btn-outline-primary my-1 mr-1 btn-sm"
-                                   href="/publications/ccopyright/ccopyright_2018SR1046302.pdf"
-                                   itemprop="url" rel="noopener">Certificate</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
+                    <li style="margin-top: -0.8em">
+                        <strong>Random Roll Call System for Middle School Teachers</strong>
+                        <p class="btn-links" style="display: inline-block; padding-left: 10px">
+                            <a class="btn btn-outline-primary my-1 mr-1 btn-sm"
+                               href="/publications/ccopyright/ccopyright_2018SR1046302.pdf"
+                               itemprop="url" rel="noopener">Certificate</a>
+                        </p>
+                        <p style="font-size: 0.75rem; margin-top: -1.5em">
+                            Qiujie Dong, Shengzong Zhou, Haiyan Ge.
+                        </p>
+                    </li>
+                </ul>
             </div>
         </div>
     </div>
 </section>
 
 
-<section id="honors" class="home-section wg-blank" style="background-color: white;padding: 30px 0px 10px 0px;">
+<a id="awards" style=" position: relative;top: -100px;display: block;height: 0;overflow: hidden;"></a>
+<section class="home-section wg-blank" style="background-color: white;padding: 30px 0px 10px 0px;">
     <div class="container">
         <div class="row">
             <div class="col-12 section-heading">
@@ -937,7 +768,8 @@
 </section>
 
 
-<section id="experiences" class="home-section wg-blank" style="background-color: white;padding: 30px 0px 10px 0px;">
+<a id="experiences" style=" position: relative;top: -100px;display: block;height: 0;overflow: hidden;"></a>
+<section class="home-section wg-blank" style="background-color: white;padding: 30px 0px 10px 0px;">
     <div class="container">
         <div class="row">
             <div class="col-12 section-heading">
@@ -964,7 +796,8 @@
                             <p class="course">Joint-M.Eng. at Chinese Academy of Sciences-North
                                 University of China, 2020</p>
 
-                            <p class="institution">Fujian Institute of Research on the Structure of Matter; School of Data Science and Technology</p>
+                            <p class="institution">Fujian Institute of Research on the Structure of Matter; School of
+                                Data Science and Technology</p>
                         </div>
                     </li>
 
@@ -985,11 +818,12 @@
 </section>
 
 
-<section id="activities" class="home-section wg-contact   " style="background-color: white;padding: 20px 0px 0px 0px;">
+<a id="services" style=" position: relative;top: -90px;display: block;height: 0;overflow: hidden;"></a>
+<section class="home-section wg-contact   " style="background-color: white;padding: 20px 0px 0px 0px;">
     <div class="container">
         <div class="row">
             <div class="col-12 section-heading">
-                <h3>Activities</h3>
+                <h3>Services</h3>
                 <hr>
             </div>
 
@@ -1012,7 +846,8 @@
 <div style="text-align:center;">
     <div style="display:inline-block;width:350px;">
         <script type="text/javascript" id='clustrmaps'
-                src="//rf.revolvermaps.com/0/0/7.js?i=5a2vwouejnu&amp;m=0&amp;c=ff0000&amp;cr1=ffffff&amp;br=10&amp;sx=0" async="async">
+                src="//rf.revolvermaps.com/0/0/7.js?i=5a2vwouejnu&amp;m=0&amp;c=ff0000&amp;cr1=ffffff&amp;br=10&amp;sx=0"
+                async="async">
         </script>
     </div>
 </div>
@@ -1024,11 +859,11 @@
             This page is maintained by Qiujie Dong.
             Latest updated on
             <script type="text/javascript">
-					var m = document.lastModified;
-					var p = m.length - 9;
-					// document.writeln("<left>");
-					document.write(m.substring(p, 0) + ".");
-					// document.writeln("</left>");
+                var m = document.lastModified;
+                var p = m.length - 9;
+                // document.writeln("<left>");
+                document.write(m.substring(p, 0) + ".");
+                // document.writeln("</left>");
             </script>
         </p>
     </footer>
