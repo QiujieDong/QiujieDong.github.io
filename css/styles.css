@@ -25,7 +25,7 @@ body {
   font-family: inherit;
   font-size: 1rem;
   line-height: inherit;
-  color: inherit;
+  color: #000000;
   background-color: #fff;
   margin-top: 70px; /* Offset body content by navbar height. */
   padding-top: 0;
