@@ -269,7 +269,7 @@ small,
 }
 
 .dark .search-results {
-  background-color: rgb(40, 42, 54);
+  background-color: #fff;
 }
 
 .searching {
@@ -311,7 +311,7 @@ small,
 }
 
 .dark .search-header {
-  background-color: rgb(40, 42, 54);
+  background-color: rgb(0, 0, 0);
 }
 
 .search-header h1 {
@@ -470,7 +470,7 @@ a[data-fancybox] img {
 }
 
 .dark .post-nav-item a {
-  color: #ddd;
+  color: #000000;
 }
 
 /*************************************************
@@ -499,7 +499,7 @@ a[data-fancybox] img {
 .home-section.dark h2,
 .home-section.dark h3,
 .home-section.dark a:not(.btn) {
-  color: rgb(248, 248, 242);
+  color: rgb(0, 0, 0);
 }
 
 /* Underline links in dark sections to separate them from text */
@@ -548,11 +548,11 @@ a[data-fancybox] img {
 }
 
 .dark .home-section {
-  background-color: hsla(231, 15%, 18%, 1);
+  background-color: rgb(0, 0, 0);
 }
 
 .dark .home-section:nth-of-type(even) {
-  background-color: hsla(231, 15%, 16%, 1);
+  background-color: rgb(247, 247, 247);
 }
 
 @media screen and (max-width: 768px) {
@@ -620,12 +620,12 @@ a[data-fancybox] img {
 .wg-hero.dark .hero-lead,
 .wg-hero.dark .hero-cta-alt,
 .wg-hero.dark .hero-note > * {
-  color: #fff;
+  color: #000000;
   /*text-shadow: 1px 1px 4px rgba(0,0,0,0.5);*/ /* Uncomment to standout on complicated backgrounds. */
 }
 
 .wg-hero.dark a:not(.wg-hero .btn) {
-  color: #fff;
+  color: #000000;
 }
 
 .wg-hero .hero-lead a {
@@ -641,7 +641,7 @@ a[data-fancybox] img {
 }
 
 .wg-hero.dark .btn {
-  color: #0039cb;
+  color: #000000;
 }
 
 a.hero-cta-alt {
@@ -695,7 +695,7 @@ a.hero-cta-alt:hover {
 
 .dark .featurette,
 .dark .featurette h3 {
-  color: #fff;
+  color: #333;
 }
 
 .featurette-icon {
@@ -866,7 +866,7 @@ ul.share li i {
 }
 
 .dark ul.share li i {
-  color: rgb(68, 71, 90);
+  color: #fff;
 }
 
 ul.share li a {
@@ -911,7 +911,7 @@ article {
 }
 
 .dark .page-subtitle {
-  color: rgba(255,255,255,0.54);
+  color: rgba(0,0,0,.54);
 }
 
 .split-header .page-subtitle {
@@ -1008,7 +1008,7 @@ article {
 }
 
 .dark .text-muted {
-  color: rgba(255,255,255,0.54);
+  color: rgba(0,0,0,0.54);
 }
 
 .article-metadata {
@@ -1020,7 +1020,7 @@ article {
 }
 
 .dark .article-metadata {
-  color: rgba(255,255,255,0.54);
+  color: rgba(0,0,0,0.54);
 }
 
 .stream-meta.article-metadata {
@@ -1038,7 +1038,7 @@ article .article-metadata {
 }
 
 .dark .article-metadata a {
-  color: rgba(255,255,255,0.54);
+  color: rgba(0,0,0,.54);
 }
 
 .article-metadata a:hover {
@@ -1150,7 +1150,7 @@ article .article-metadata {
 }
 
 .dark .author-card {
-  border-top: 1px solid rgba(255,255,255,.05);
+  border-top: 1px solid rgba(0,0,0,.05);
 }
 
 .author-card .portrait {
@@ -1174,7 +1174,7 @@ article .article-metadata {
 
 .dark .author-card .card-title,
 .dark .author-card .card-title a {
-  color: rgba(255, 255, 255, 0.84);
+  color: rgba(0, 0, 0, 0.84);
 }
 
 .author-card p {
@@ -1189,7 +1189,7 @@ article .article-metadata {
 }
 
 .dark .author-card .card-subtitle {
-  color: rgba(255, 255, 255, 0.54);
+  color: rgba(0, 0, 0, 0.54);
 }
 
 .author-card .card-text {
@@ -1199,7 +1199,7 @@ article .article-metadata {
 }
 
 .dark .author-card .card-text {
-  color: rgba(255, 255, 255, 0.76);
+  color: rgba(0, 0, 0, 0.76);
 }
 
 /*************************************************
@@ -1265,7 +1265,7 @@ article .article-metadata {
 }
 
 .dark .li-cite-author a {
-  color: rgb(248, 248, 242);
+  color: rgb(0, 0, 0);
 }
 
 /*************************************************
@@ -1292,12 +1292,12 @@ article .article-metadata {
 }
 
 .dark .experience .text-muted {
-  color: rgba(255, 255, 255, 0.8) !important;
+  color: #000 !important;
 }
 
 .dark .experience .card-text,
 .dark .experience .card-text p {
-  color: rgb(248, 248, 242) !important;
+  color: rgb(0, 0, 0) !important;
 }
 
 .card .card-text ul {
@@ -1442,7 +1442,7 @@ article .article-metadata {
 
 .dark .card-simple {
   background: rgb(40, 42, 54);
-  box-shadow: 0 1px 4px rgba(0,0,0,.04);
+  box-shadow: 0 1px 4px rgb(0,0,0,.04);
   border: 1px solid rgb(68, 71, 90);
 }
 
@@ -1489,7 +1489,7 @@ article .article-metadata {
 }
 
 .dark .card-text p {
-  color: rgb(248, 248, 242);
+  color: rgba(0,0,0,0.54);
 }
 
 .card p:last-child {
@@ -1591,7 +1591,7 @@ footer a#back_to_top i {
 .dark .site-footer,
 .dark footer a#back_to_top i,
 .dark .docs .body-footer {
-  color: rgba(255,255,255,0.54);
+  color: rgba(0,0,0,0.54);
 }
 
 /**************************************************
@@ -1643,7 +1643,7 @@ a.badge:hover {
 .dark .tag-cloud a:active,
 .dark .tag-cloud a:focus,
 .dark .tag-cloud a:hover {
-  color: #768fff;
+  color: #0039cb;
 }
 
 /*************************************************
@@ -1707,7 +1707,9 @@ a.badge:hover {
 .dark .btn-outline-primary:not(:disabled):not(.disabled).active,
 .dark .btn-outline-primary:not(:disabled):not(.disabled):active,
 .dark .show > .btn-outline-primary.dropdown-toggle {
-  color: rgb(68, 71, 90);
+  color: #fff;
+  background-color: #2962ff;
+  border-color: #2962ff;
 }
 
 .btn-outline-primary:hover {
@@ -1717,7 +1719,9 @@ a.badge:hover {
 }
 
 .dark .btn-outline-primary:hover {
-  color: rgb(68, 71, 90);
+  color: #fff;
+  background-color: #2962ff;
+  border-color: #2962ff;
 }
 
 /*************************************************
