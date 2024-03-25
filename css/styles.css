@@ -1673,13 +1673,13 @@ a.badge:hover {
  **************************************************/
 
 .btn-primary {
-  border-color: #2962ff;
-  background: #2962ff;
+  border-color: #599bd1;
+  background: #599bd1;
 }
 
 .btn-outline-primary {
-  border-color: #2962ff;
-  color: #2962ff;
+  border-color: #599bd1;
+  color: #599bd1;
 }
 
 .btn-primary:hover,
@@ -1687,7 +1687,7 @@ a.badge:hover {
 .btn-primary.active,
 .btn-primary:visited,
 .open > .dropdown-toggle.btn-primary {
-  background: #2962ff;
+  background: #599bd1;
 }
 
 .btn-outline-light:hover,
@@ -1700,28 +1700,28 @@ a.badge:hover {
 .btn-outline-primary:not(:disabled):not(.disabled):active,
 .show > .btn-outline-primary.dropdown-toggle {
   color: #fff;
-  background-color: #2962ff;
-  border-color: #2962ff;
+  background-color: #599bd1;
+  border-color: #599bd1;
 }
 
 .dark .btn-outline-primary:not(:disabled):not(.disabled).active,
 .dark .btn-outline-primary:not(:disabled):not(.disabled):active,
 .dark .show > .btn-outline-primary.dropdown-toggle {
   color: #fff;
-  background-color: #2962ff;
-  border-color: #2962ff;
+  background-color: #599bd1;
+  border-color: #599bd1;
 }
 
 .btn-outline-primary:hover {
   color: #fff;
-  background-color: #2962ff;
-  border-color: #2962ff;
+  background-color: #599bd1;
+  border-color: #599bd1;
 }
 
 .dark .btn-outline-primary:hover {
   color: #fff;
-  background-color: #2962ff;
-  border-color: #2962ff;
+  background-color: #599bd1;
+  border-color: #599bd1;
 }
 
 /*************************************************
