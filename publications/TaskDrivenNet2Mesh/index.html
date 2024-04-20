@@ -1,0 +1,247 @@
+<!DOCTYPE html
+	PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+	<title>A Task-driven Network for Mesh Classification and Semantic Part Segmentation</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+
+	<!-- Meta tags for Zotero grab citation -->
+	<meta name="citation_title" content="A Task-driven Network for Mesh Classification and Semantic Part Segmentation">
+	<meta name="citation_author" content="Qiujie Dong">
+	<meta name="citation_author" content="Xiaoran Gong">
+	<meta name="citation_author" content="Rui Xu">
+	<meta name="citation_author" content="Zixiong Wang">
+	<meta name="citation_author" content="Junjie Gao">
+	<meta name="citation_author" content="Shuangmin Chen">
+	<meta name="citation_author" content="Shiqing Xin">
+	<meta name="citation_author" content="Changhe Tu">
+    <meta name="citation_author" content="Wenping Wang">
+	<meta name="citation_publication_date" content="2024">
+	<meta name="citation_conference_title" content="ACM Transactions on Graphics">
+	<meta name="citation_pdf_url" content="https://arxiv.org/abs/2306.05246">
+
+	<meta name="robots" content="index,follow">
+	<meta name="description"
+		content="Given the rapid advancements in geometric deep-learning techniques, there has been a dedicated effort to
+		create mesh-based convolutional operators that act as a link between irregular mesh structures and widely adopted backbone networks.
+		Despite the numerous advantages of Convolutional Neural Networks (CNNs) over Multi-Layer Perceptrons (MLPs),
+		mesh-oriented CNNs often require intricate network architectures to tackle irregularities of a triangular mesh.
+		These architectures not only demand that the mesh be manifold and watertight but also impose constraints on the abundance of training samples.
+		In this paper, we note that for specific tasks such as mesh classification and semantic part segmentation,
+		large-scale shape features play a pivotal role. This is in contrast to the realm of shape correspondence,
+		where a comprehensive understanding of 3D shapes necessitates considering both local and global characteristics.
+		Inspired by this key observation, we introduce a task-driven neural network architecture that seamlessly operates in an
+		end-to-end fashion.
+		Our method takes as input mesh vertices equipped with the heat kernel signature (HKS) and dihedral angles between adjacent faces.
+		Notably, we replace the conventional convolutional module, commonly found in ResNet architectures,
+		with MLPs and incorporate Layer Normalization (LN) to facilitate layer-wise normalization.
+		Our approach, with a seemingly straightforward network architecture, demonstrates an accuracy advantage.
+		It exhibits a marginal 0.1\% improvement in the mesh classification task and a substantial 1.8\% enhancement in the mesh part
+		segmentation task compared to state-of-the-art methodologies.
+		Moreover, as the number of training samples decreases to 1/50 or even 1/100, the accuracy advantage of our approach becomes more pronounced.
+		In summary, our convolution-free network is tailored for specific tasks relying on large-scale shape
+		features and excels in the situation with a limited number of training samples, setting itself apart from state-of-the-art methodologies.
+		">
+    <link rel="icon" type="image/png" href="/author/icon.jpg">
+
+	<!-- Fonts and stuff -->
+	<link href='http://fonts.googleapis.com/css?family=Open+Sans:400italic,700italic,800italic,400,700,800'
+		rel='stylesheet' type='text/css'>
+	<link rel="stylesheet" type="text/css" href="../../css/project.css" media="screen" />
+	<link rel="stylesheet" type="text/css" media="screen" href="../../css/iconize.css" />
+	<script src="js/google-code-prettify/prettify.js"></script>
+</head>
+
+<body>
+	<div id="content">
+		<div id="content-inner">
+			<div class="section logos" style="text-align:center">
+				<a href="https://www.en.sdu.edu.cn/" target="_blank" rel="noopener"><IMG src="../Assets/logos/logo_SDU.png" height="66" border="0"></a></td>
+				<a href="https://en.nankai.edu.cn/" target="_blank" rel="noopener"><IMG src="../Assets/logos/logo_NKU.png" height="66" border="0"></a></td>
+                <a href="https://en.qust.edu.cn/" target="_blank" rel="noopener"><IMG src="../Assets/logos/logo_QUST.png" height="66" border="0"></a></td>
+                <a href="https://www.tamu.edu/" target="_blank" rel="noopener"><IMG src="../Assets/logos/logo_ATM.png" height="66" border="0"></a></td>
+			</div>
+
+			<div class="section head">
+
+				<h1>A Task-driven Network for Mesh Classification and Semantic Part Segmentation</h1>
+
+				<div class="authors">
+					<a href="https://qiujiedong.github.io/" itemprop="url" rel="noopener">Qiujie Dong</a><sup> 1</sup>&#160;&#160;
+					<a href="https://github.com/gongxiaoran" target="_blank" rel="noopener">Xiaoran Gong</a><sup> 1</sup>&#160;&#160;
+                    <a href="https://ruixu.me/" target="_blank" rel="noopener">Rui Xu</a><sup> 1</sup>&#160;&#160;
+					<a href="https://bearprin.com/" target="_blank" rel="noopener">Zixiong Wang</a><sup> 2</sup>&#160;&#160;
+					<a href="https://scholar.google.com/citations?user=CTDs13EAAAAJ&hl" target="_blank" rel="noopener">Junjie Gao</a><sup> 1</sup>&#160;&#160;
+                    <a href="https://ieeexplore.ieee.org/author/37088955375" target="_blank" rel="noopener">Shuangmin Chen</a><sup> 3</sup>&#160;&#160;
+                    <a href="http://irc.cs.sdu.edu.cn/~shiqing/index.html" target="_blank" rel="noopener">Shiqing Xin</a><sup> 1</sup>&#160;&#160;
+					<br>
+					<a href="http://irc.cs.sdu.edu.cn/~chtu/index.html" target="_blank" rel="noopener">Changhe Tu</a><sup> 1</sup>&#160;&#160;
+                    <a href="https://engineering.tamu.edu/cse/profiles/Wang-Wenping.html" target="_blank" rel="noopener">Wenping Wang</a><sup> 4</sup>&#160;&#160;
+				</div>
+
+				<div class="affiliations">
+					<sup>1</sup><a href="https://www.en.sdu.edu.cn/" target="_blank" rel="noopener">Shandong University</a>&#160;&#160;
+					<sup>2</sup><a href="https://www.hku.hk/" target="_blank" rel="noopener">Nankai University</a>&#160;&#160;
+					<sup>3</sup><a href="https://en.qust.edu.cn/" target="_blank" rel="noopener">Qingdao University of Science and Technology</a>&#160;&#160;
+                    <br>
+                    <sup>4</sup><a href="https://www.tamu.edu/" target="_blank" rel="noopener">Texas A&M University</a>&#160;&#160;
+				</div>
+				<div class="venue"> arxiv 2023 </div>
+			</div>
+			<div class="section downloads" style="text-align:center">
+				<ul style="padding-left: 0">
+					<li class="grid">
+						<div class="griditem">
+							<a href="https://arxiv.org/abs/2306.05246" itemprop="url" rel="noopener"><img src="../Assets/images/pdf.png"></a><br/>
+							<a href="https://arxiv.org/abs/2306.05246" itemprop="url" rel="noopener">Paper</a>
+						</div>
+					</li>
+					<li class="grid">
+						<div class="griditem">
+							<a href="https://github.com/QiujieDong/TaskDrivenNet2Mesh" itemprop="url" rel="noopener"><img src="../Assets/images/github.png"></a><br/>
+							<a href="https://github.com/QiujieDong/TaskDrivenNet2Mesh" itemprop="url" rel="noopener">Code</a>
+
+						</div>
+					</li>
+				</ul>
+			</div>
+
+
+			<div class="section abstract">
+				<h2>Abstract</h2><br>
+				<div class="row" style="margin-bottom:5px">
+					<div class="col" style="text-align:center">
+						<img class="thumbnail" src="figs/pipeline.png" style="width:95%; margin-bottom:20px">
+					</div>
+
+				</div>
+				<p style="text-align:justify;">
+					Given the rapid advancements in geometric deep-learning techniques, there has been a dedicated effort to
+					create mesh-based convolutional operators that act as a link between irregular mesh structures and widely adopted backbone networks.
+					Despite the numerous advantages of Convolutional Neural Networks (CNNs) over Multi-Layer Perceptrons (MLPs),
+					mesh-oriented CNNs often require intricate network architectures to tackle irregularities of a triangular mesh.
+					These architectures not only demand that the mesh be manifold and watertight but also impose constraints on the abundance of training samples.
+					In this paper, we note that for specific tasks such as mesh classification and semantic part segmentation,
+					large-scale shape features play a pivotal role. This is in contrast to the realm of shape correspondence,
+					where a comprehensive understanding of 3D shapes necessitates considering both local and global characteristics.
+					Inspired by this key observation, we introduce a task-driven neural network architecture that seamlessly operates in an
+					end-to-end fashion.
+					Our method takes as input mesh vertices equipped with the heat kernel signature (HKS) and dihedral angles between adjacent faces.
+					Notably, we replace the conventional convolutional module, commonly found in ResNet architectures,
+					with MLPs and incorporate Layer Normalization (LN) to facilitate layer-wise normalization.
+					Our approach, with a seemingly straightforward network architecture, demonstrates an accuracy advantage.
+					It exhibits a marginal 0.1% improvement in the mesh classification task and a substantial 1.8% enhancement in the mesh part
+					segmentation task compared to state-of-the-art methodologies.
+					Moreover, as the number of training samples decreases to 1/50 or even 1/100, the accuracy advantage of our approach becomes more pronounced.
+					In summary, our convolution-free network is tailored for specific tasks relying on large-scale shape
+					features and excels in the situation with a limited number of training samples, setting itself apart from state-of-the-art methodologies.
+				</p>
+			</div>
+
+			<div class="section abstract">
+				<h2>Introduction</h2><br>
+
+				<p style="text-align:justify;">
+					In this paper, (1) We introduce a task-driven neural network that accommodates diverse mesh
+					triangulations/resolutions and manifold/non-manifold mesh models.
+					(2) Our method demonstrates robust learning capabilities for mesh classification and semantic segmentation tasks,
+					surpassing existing state-of-the-art methods, especially in scenarios with limited data availability.
+					(3) Extensive experiments were conducted, and all the results consistently validate the efficacy of our proposed approach.
+				</p>
+
+				<div class="row" style="margin-bottom:5px">
+					<div class="col" style="text-align:center">
+						<img class="thumbnail" src="figs/agnostic_globalInfluence.png" style="width:95%; margin-bottom:20px">
+						<p style="text-align:justify; text-align-last: center;">
+							(a) Our method showcases a noteworthy ability to effectively handle mesh models with varying resolutions.
+							Furthermore, it exhibits robustness when confronted with different triangulations, even in cases where the input model
+							contains elongated and narrow triangles, as exemplified by the Vase model on the right.
+							(b) We employ the red star as the reference for visualizing the correlation with other destination points.
+							The color bar indicates that the weakest correlation is denoted by the color magenta.
+							Remarkably, the correlation between the red star and the yellow star persists even when
+							they are separated by a considerable distance.
+						</p>
+					</div>
+				</div>
+				<div class="row" style="margin-bottom:5px">
+					<div class="col" style="text-align:center">
+						<img class="thumbnail" src="figs/segLine.png" style="width:80%; margin-bottom:20px">
+						<p style="text-align:justify; text-align-last: center;">
+							In semantic part segmentation tasks, it has been observed that the segmentation boundary (highlighted in red)
+							tends to align with the negative minima of the principal curvatures. This alignment suggests that dihedral angles can serve
+							as valuable indicators in semantic part segmentation.
+						</p>
+					</div>
+				</div>
+			</div>
+
+			<br>
+
+			<div class="section abstract">
+				<h2>Results</h2><br>
+
+					<div class="row" style="margin-bottom:5px">
+						<div class="col" style="text-align:center">
+							<img class="thumbnail" src="figs/Teasercut.png" style="width:90%; margin-bottom:20px">
+							<p style="text-align:justify; text-align-last: center;">
+								A gallery of segmentation results of the COSEG dataset. From left to right: Tele-aliens, Chairs, and Vases.
+							</p>
+						</div>
+
+						<div class="col" style="text-align:center">
+							<img class="thumbnail" src="figs/human.png" style="width:80%; margin-bottom:20px">
+							<p style="text-align:justify; text-align-last: center;">
+								We conducted tests on the Human Body dataset. The segmentation results are visually depicted in this figure.
+							</p>
+						</div>
+
+						<div class="col" style="text-align:center">
+							<img class="thumbnail" src="figs/blood.png" style="width:70%; margin-bottom:20px">
+							<p style="text-align:justify; text-align-last: center;">
+								The segmentation results for intracranial aneurysms demonstrate the high accuracy achieved by our method.
+							</p>
+						</div>
+
+						<div class="col" style="text-align:center">
+							<img class="thumbnail" src="figs/nonmanifold_nonwatertight.png" style="width:70%; margin-bottom:20px">
+							<p style="text-align:justify; text-align-last: center;">
+								Our method demonstrates the capability to perform segmentation on non-watertight data, as shown on the left,
+								and non-manifold data, as depicted on the right.
+							</p>
+						</div>
+
+				</div>
+			</div>
+
+
+			<div class="section list">
+				<h2>Citation</h2>
+				<div class="section bibtex">
+					<pre>
+@ARTICLE{Dong2024TaskDrivenNet2Mesh,
+author={Dong, Qiujie and Gong, Xiaoran and Xu, Rui and Wang, Zixiong and Gao, Junjie and Chen, Shuangmin and Xin, Shiqing and Tu, Changhe and Wang, Wenping},
+journal={arXiv},
+title={A Task-driven Network for Mesh Classification and Semantic Part Segmentation},
+year={2023},
+keywords = {Geometric Deep Learning, Mesh Classification, Semantic Part Segmentation, Task-driven Neural Network}
+}
+					</pre>
+				</div>
+			</div>
+
+<!--issue_date = {July 2024},-->
+<!--publisher = {Association for Computing Machinery},-->
+<!--address = {New York, NY, USA},-->
+<!--volume = {43},-->
+<!--number = {4},-->
+
+			<div class="section">
+				<hr class="smooth">
+				This page is maintained by <a href="https://qiujiedong.github.io/" itemprop="url" rel="noopener">Qiujie Dong</a>.
+			</div>
+		</div>
+	</div>
+</body>
+</html>
