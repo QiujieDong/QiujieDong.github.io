@@ -1,0 +1,258 @@
+<!DOCTYPE html
+	PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+	<title>Laplacian2Mesh: Laplacian-Based Mesh Understanding</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+
+	<!-- Meta tags for Zotero grab citation -->
+	<meta name="citation_title" content="NeurCADRecon: Neural Representation for Reconstructing CAD Surfaces by Enforcing Zero Gaussian Curvature">
+	<meta name="citation_author" content="Qiujie Dong">
+	<meta name="citation_author" content="Rui Xu">
+	<meta name="citation_author" content="Pengfei Wang">
+	<meta name="citation_author" content="Shuangmin Chen">
+	<meta name="citation_author" content="Shiqing Xin">
+	<meta name="citation_author" content="Xiaohong Jia">
+    <meta name="citation_author" content="Wenping Wang">
+	<meta name="citation_author" content="Changhe Tu">
+	<meta name="citation_publication_date" content="2024">
+	<meta name="citation_conference_title" content="ACM Transactions on Graphics">
+	<meta name="citation_pdf_url" content="https://doi.org/10.1109/TVCG.2023.3259044">
+
+	<meta name="robots" content="index,follow">
+	<meta name="description"
+		content="Despite recent advances in reconstructing an organic model with the neural signed distance function (SDF),
+		the high-fidelity reconstruction of a CAD model directly from low-quality unoriented point clouds remains a significant challenge.
+		In this paper, we address this challenge based on the prior observation that the surface of a CAD model is generally composed of
+		piecewise surface patches, each approximately developable even around the feature line. Our approach, named NeurCADRecon,
+		is self-supervised, and its loss includes a developability term to encourage the Gaussian curvature toward 0 while ensuring
+		fidelity to the input points (see the teaser figure). Noticing that the Gaussian curvature is non-zero at tip points,
+		we introduce a double-trough curve to tolerate the existence of these tip points.
+		Furthermore, we develop a dynamic sampling strategy to deal with situations where the given points are incomplete or too sparse.
+		Since our resulting neural SDFs can clearly manifest sharp feature points/lines, one can easily extract the feature-aligned
+		triangle mesh from the SDF and then decompose it into smooth surface patches,
+		greatly reducing the difficulty of recovering the parametric CAD design.
+		A comprehensive comparison with existing state-of-the-art methods shows the significant advantage of our approach in
+		reconstructing faithful CAD shapes.
+		">
+    <link rel="icon" type="image/png" href="/author/icon.jpg">
+
+	<!-- Fonts and stuff -->
+	<link href='http://fonts.googleapis.com/css?family=Open+Sans:400italic,700italic,800italic,400,700,800'
+		rel='stylesheet' type='text/css'>
+	<link rel="stylesheet" type="text/css" href="../../css/project.css" media="screen" />
+	<link rel="stylesheet" type="text/css" media="screen" href="../../css/iconize.css" />
+	<script src="js/google-code-prettify/prettify.js"></script>
+</head>
+
+<body>
+	<div id="content">
+		<div id="content-inner">
+			<div class="section logos" style="text-align:center">
+				<a href="https://www.en.sdu.edu.cn/" target="_blank" rel="noopener"><IMG src="../Assets/logos/logo_SDU.png" height="66" border="0"></a></td>
+				<a href="https://www.hku.hk/" target="_blank" rel="noopener"><IMG src="../Assets/logos/logo_HKU.png" height="66" border="0"></a></td>
+                <a href="https://en.qust.edu.cn/" target="_blank" rel="noopener"><IMG src="../Assets/logos/logo_QUST.png" height="66" border="0"></a></td>
+				<a href="https://english.cas.cn/" target="_blank" rel="noopener"><IMG src="../Assets/logos/logo_CAS.png" height="66" border="0"></a></td>
+                <a href="https://www.tamu.edu/" target="_blank" rel="noopener"><IMG src="../Assets/logos/logo_ATM.png" height="66" border="0"></a></td>
+			</div>
+
+			<div class="section head">
+
+				<h1>NeurCADRecon: Neural Representation for Reconstructing CAD Surfaces by Enforcing Zero Gaussian Curvature</h1>
+
+				<div class="authors">
+					<a href="https://qiujiedong.github.io/" itemprop="url" rel="noopener">Qiujie Dong</a><sup> 1</sup>&#160;&#160;
+                    <a href="https://ruixu.me/" target="_blank" rel="noopener">Rui Xu</a><sup> 1</sup>&#160;&#160;
+                    Pengfei Wang<sup> 2</sup>&#160;&#160;
+                    <a href="https://ieeexplore.ieee.org/author/37088955375" target="_blank" rel="noopener">Shuangmin Chen</a><sup> 3</sup>&#160;&#160;
+                    <a href="http://irc.cs.sdu.edu.cn/~shiqing/index.html" target="_blank" rel="noopener">Shiqing Xin</a><sup> 1</sup>&#160;&#160;
+					<a href="https://engineering.tamu.edu/cse/profiles/Wang-Wenping.html" target="_blank" rel="noopener">Xiaohong Jia</a><sup> 4</sup>&#160;&#160;
+					<br>
+                    <a href="https://engineering.tamu.edu/cse/profiles/Wang-Wenping.html" target="_blank" rel="noopener">Wenping Wang</a><sup> 5</sup>&#160;&#160;
+					<a href="http://irc.cs.sdu.edu.cn/~chtu/index.html" target="_blank" rel="noopener">Changhe Tu</a><sup> 1</sup>&#160;&#160;
+				</div>
+
+				<div class="affiliations">
+					<sup>1</sup><a href="https://www.en.sdu.edu.cn/" target="_blank" rel="noopener">Shandong University</a>&#160;&#160;
+					<sup>2</sup><a href="https://www.hku.hk/" target="_blank" rel="noopener">The University of Hong Kong</a>&#160;&#160;
+					<sup>3</sup><a href="https://en.qust.edu.cn/" target="_blank" rel="noopener">Qingdao University of Science and Technology</a>&#160;&#160;
+                    <br>
+					<sup>4</sup><a href="https://english.cas.cn/" target="_blank" rel="noopener">AMSS, Chinese Academy Of Sciences</a>&#160;&#160;
+                    <sup>5</sup><a href="https://www.tamu.edu/" target="_blank" rel="noopener">Texas A&M University</a>&#160;&#160;
+				</div>
+				<div class="venue"> ACM Transactions on Graphics (SIGGRAPH 2024) </div>
+			</div>
+			<div class="section downloads" style="text-align:center">
+				<ul style="padding-left: 0">
+					<li class="grid">
+						<div class="griditem">
+<!--							<a href="https://arxiv.org/abs/2202.00307" itemprop="url" rel="noopener"><img src="../Assets/images/pdf.png"></a><br/>-->
+<!--							<a href="https://arxiv.org/abs/2202.00307" itemprop="url" rel="noopener">Paper</a>-->
+							<a href="" itemprop="url" rel="noopener"><img src="../Assets/images/pdf.png"></a><br/>
+							<a href="" itemprop="url" rel="noopener">Paper</a>
+						</div>
+					</li>
+					<li class="grid">
+						<div class="griditem">
+<!--							<a href="https://github.com/QiujieDong/NeurCADRecon" itemprop="url" rel="noopener"><img src="../Assets/images/github.png"></a><br/>-->
+<!--							<a href="https://github.com/QiujieDong/NeurCADRecon" itemprop="url" rel="noopener">Code</a>-->
+							<a href="" itemprop="url" rel="noopener"><img src="../Assets/images/github.png"></a><br/>
+							<a href="" itemprop="url" rel="noopener">Code</a>
+
+						</div>
+					</li>
+				</ul>
+			</div>
+
+
+			<div class="section abstract">
+				<h2>Abstract</h2><br>
+				<div class="row" style="margin-bottom:5px">
+					<div class="col" style="text-align:center">
+						<img class="thumbnail" src="figs/teaser.png" style="width:95%; margin-bottom:20px">
+					</div>
+
+				</div>
+				<p style="text-align:justify;">
+					Despite recent advances in reconstructing an organic model with the neural signed distance function (SDF),
+					the high-fidelity reconstruction of a CAD model directly from low-quality unoriented point clouds remains a significant challenge.
+					In this paper, we address this challenge based on the prior observation that the surface of a CAD model is generally composed of
+					piecewise surface patches, each approximately developable even around the feature line. Our approach, named NeurCADRecon,
+					is self-supervised, and its loss includes a developability term to encourage the Gaussian curvature toward 0 while ensuring
+					fidelity to the input points (see the teaser figure). Noticing that the Gaussian curvature is non-zero at tip points,
+					we introduce a double-trough curve to tolerate the existence of these tip points.
+					Furthermore, we develop a dynamic sampling strategy to deal with situations where the given points are incomplete or too sparse.
+					Since our resulting neural SDFs can clearly manifest sharp feature points/lines, one can easily extract the feature-aligned
+					triangle mesh from the SDF and then decompose it into smooth surface patches,
+					greatly reducing the difficulty of recovering the parametric CAD design.
+					A comprehensive comparison with existing state-of-the-art methods shows the significant advantage of our approach in
+					reconstructing faithful CAD shapes.
+				</p>
+			</div>
+
+			<div class="section abstract">
+				<h2>Introduction</h2><br>
+
+				<p style="text-align:justify;">
+					In this paper, (1) we propose to learn the neural SDF, in a self-supervised fashion,
+					from a low-quality unoriented point cloud that potentially represents a CAD model,
+					inspired by the fact that CAD model surfaces are typically piecewise smooth and approximately developable.
+					(2) We define the developability loss term for encouraging the target Gaussian curvature to be either
+					0 or around pi/2 (tolerating the existence of tip points), which is achieved by introducing a double-trough curve.
+					(3) We leverage dynamic sampling to handle data imperfections,
+					allowing for adaptive loss measurement varying with changes in the underlying surface.
+					Extensive tests on four open datasets showcase our significant advantage in reconstructing CAD-type shapes.
+				</p>
+
+				<div class="row" style="margin-bottom:5px">
+					<div class="col" style="text-align:center">
+						<img class="thumbnail" src="figs/gallery.png" style="width:95%; margin-bottom:20px">
+						<p>A gallery of reconstruction results by our NeurCADRecon.</p>
+					</div>
+				</div>
+				<div class="row" style="margin-bottom:5px">
+					<div class="col" style="text-align:center">
+						<img class="thumbnail" src="figs/add_DT.png" style="width:95%; margin-bottom:20px">
+						<p>By utilizing a specially designed double-trough (DT) curve, we allow the presence of non-zero Gaussian curvature, but are more inclined to favor zero
+							Gaussian curvature. Without the usage of the tolerating technique, bulges may arise around the tip points.</p>
+					</div>
+				</div>
+			</div>
+
+			<br>
+
+			<div class="section abstract">
+				<h2>Results</h2><br>
+
+					<div class="row" style="margin-bottom:5px">
+						<div class="col" style="text-align:center">
+							<img class="thumbnail" src="figs/compare_dataset.png" style="width:95%; margin-bottom:20px">
+							<p style="text-align:justify; text-align-last: center;">
+								Comparison with state-of-the-art surface reconstruction methods is conducted on a variety of challenging CAD models,
+								including those with thin tubes, tiny links, sharp corners, and narrow slits.
+								The first model showcases reconstruction results of varying density input points (10K and 5K simultaneously),
+								while the remaining two models are based on 10K input points.
+								Method marked with ‘∗’ requires normals, and those marked with ‘+’ are supervision-based.
+								Across the board, our NeurCADRecon outperforms other methods in terms of reconstruction fidelity on complex CAD models.
+							</p>
+						</div>
+
+						<div class="col" style="text-align:center">
+							<img class="thumbnail" src="figs/noise.png" style="width:95%; margin-bottom:20px">
+							<p style="text-align:justify; text-align-last: center;">
+								Evaluate various point surface reconstruction approaches on a point cloud with 0.5% Gaussian noise.
+								Our method stands out as the only approach
+								that effectively recovers a smooth CAD surface even in the presence of input points affected by noise.
+							</p>
+						</div>
+
+						<div class="col" style="text-align:center">
+							<img class="thumbnail" src="figs/sparse.png" style="width:95%; margin-bottom:20px">
+							<p style="text-align:justify; text-align-last: center;">
+								Experiments are conducted on sparse point clouds containing only 1K points,
+								and our results exhibit a close alignment with the ground truth for the provided input.
+								This comparison highlights the substantial advantage of our algorithm in dealing with sparse raw data.
+							</p>
+						</div>
+
+						<div class="col" style="text-align:center">
+							<img class="thumbnail" src="figs/incomplete.png" style="width:95%; margin-bottom:20px">
+							<p style="text-align:justify; text-align-last: center;">
+								In a comparison with state-of-the-art methods using an incomplete point cloud as input,
+								characterized by data imperfections across feature points and lines,
+								our NeurCADRecon outperforms other methods in terms of reconstruction accuracy.
+							</p>
+						</div>
+
+						<div class="col" style="text-align:center">
+							<img class="thumbnail" src="figs/armadillo.png" style="width:95%; margin-bottom:20px">
+							<p style="text-align:justify; text-align-last: center;">
+								The upper part of this figure presents the results achieved by our proposed method and those reported in Stein et al. [2018] and Sellán et al.
+								[2020] for the Armadillo model.
+								The lower part of the figure showcases the results generated by our method under different parameter settings: (a)
+								𝜆_Gauss = 3, #iter 1K, (b) 𝜆_Gauss = 3, #iter 7K, (c) 𝜆_Gauss = 100, #iter 7K.
+							</p>
+						</div>
+
+						<div class="col" style="text-align:center">
+							<img class="thumbnail" src="figs/iso_surface.png" style="width:95%; margin-bottom:20px">
+							<p style="text-align:justify; text-align-last: center;">
+								The zero isosurface extraction results of Neural Dual Contouring (NDC), Marching Cubes (MC),
+								Dual Marching Cubes with gradient (DMC-G), and Dual Marching Cubes without gradient (DMC) for our predicted
+SDF.
+							</p>
+						</div>
+				</div>
+			</div>
+
+
+			<div class="section list">
+				<h2>Citation</h2>
+				<div class="section bibtex">
+					<pre>
+@ARTICLE{Dong2024NeurCADRecon,
+author={Dong, Qiujie and Xu, Rui and Wang, Pengfei and Chen, Shuangmin and Xin, Shiqing and Jia, Xiaohong and Wang, Wenping and Tu, Changhe},
+journal={ACM Transactions on Graphics},
+title={NeurCADRecon: Neural Representation for Reconstructing CAD Surfaces by Enforcing Zero Gaussian Curvature},
+year={2024},
+issue_date = {July 2024},
+publisher = {Association for Computing Machinery},
+address = {New York, NY, USA},
+volume = {43},
+number = {4},
+keywords = {CAD model, unoriented point cloud, surface reconstruction, signed distance function, Gaussian curvature}
+}
+					</pre>
+				</div>
+			</div>
+
+			<div class="section">
+				<hr class="smooth">
+				This page is maintained by <a href="https://qiujiedong.github.io/" itemprop="url" rel="noopener">Qiujie Dong</a>.
+			</div>
+		</div>
+	</div>
+</body>
+</html>
