@@ -1,0 +1,301 @@
+<!DOCTYPE html
+	PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+	<title>NeurCross: A Neural Approach to Computing Cross Fields for Quad Mesh Generation</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+
+	<!-- Meta tags for Zotero grab citation -->
+	<meta name="citation_title" content="NeurCross: A Neural Approach to Computing Cross Fields for Quad Mesh Generation">
+	<meta name="citation_author" content="Qiujie Dong">
+	<meta name="citation_author" content="Huibiao Wen">
+	<meta name="citation_author" content="Rui Xu">
+	<meta name="citation_author" content="Shuangmin Chen">
+	<meta name="citation_author" content="Jiaran Zhou">
+	<meta name="citation_author" content="Shiqing Xin">
+	<meta name="citation_author" content="Changhe Tu">
+	<meta name="citation_author" content="Taku Komura">
+    <meta name="citation_author" content="Wenping Wang">
+	<meta name="citation_publication_date" content="2024">
+	<meta name="citation_conference_title" content="ACM Transactions on Graphics">
+	<meta name="citation_pdf_url" content="https://arxiv.org/abs/2405.13745">
+
+	<meta name="robots" content="index,follow">
+	<meta name="description"
+		content="Quadrilateral mesh generation plays a crucial role in numerical simulations within Computer-Aided Design
+			and Engineering (CAD/E). Achieving high-quality quadrangulation typically requires meeting at least four common criteria.
+			First, the quadrilateral mesh should closely align with the principal curvature directions. Second, singular points should
+			be well-placed and their number should be suppressed to some extent. Third, the quadrilateral mesh should conform to
+			sharp feature edges.
+ 			Lastly, the quadrangulation outcomes should exhibit insensitivity to noise and minor geometric variations.
+			Existing methods focus on first inferring a reliable cross field to depict the orientation of quad elements across
+			the surface and the extract a quad mesh that aligns with the computed cross field as closely as possible.
+			They face a critical challenge in properly balancing the regularity of the cross field with their alignment
+			to pre-computed principal curvature directions, particularly for geometrically or topologically complex shapes,
+			primarily because of the difficulty of pre-computing accurate and regular principal curvature directions immune to
+			small surface perturbations.
+
+			Instead of relying on a pre-computed principal direction field to guide subsequent cross field optimization,
+			we propose NeurCross, a novel self-supervised framework that simultaneously optimizes the regularity of the principle
+			curvature direction field and the corresponding cross field. This is made possible by employing an optimizable neural
+			signed distance function (SDF) to approximate the input surface. This neural SDF is capable of providing a
+			faithful and well-behaved curvature direction field via the simultaneous optimization framework to further enhance
+			the regularity of the resulting cross-field. Additionally, we utilize the Hessian matrix of the neural SDF to implicitly
+			enforce the alignment of the cross field with the principal curvature directions, bypassing explicit extraction of
+			principal direction fields to enable robust computation in regions where principal curvature directions are ill-defined,
+			e.g. spherical or planar regions. Extensive experiments demonstrate that NeurCross outperforms state-of-the-art methods
+			in terms of singular point placement, robustness to noise and geometric variations, and approximation accuracy.
+		">
+    <link rel="icon" type="image/png" href="/author/icon.jpg">
+
+	<!-- Fonts and stuff -->
+	<link href='http://fonts.googleapis.com/css?family=Open+Sans:400italic,700italic,800italic,400,700,800'
+		rel='stylesheet' type='text/css'>
+	<link rel="stylesheet" type="text/css" href="../../css/project.css" media="screen" />
+	<link rel="stylesheet" type="text/css" media="screen" href="../../css/iconize.css" />
+	<script src="js/google-code-prettify/prettify.js"></script>
+</head>
+
+<body>
+	<div id="content">
+		<div id="content-inner">
+			<div class="section logos" style="text-align:center">
+				<a href="https://www.en.sdu.edu.cn/" target="_blank" rel="noopener"><IMG src="../Assets/logos/logo_SDU.png" height="66" border="0"></a></td>
+				<a href="https://www.hku.hk/" target="_blank" rel="noopener"><IMG src="../Assets/logos/logo_HKU.png" height="66" border="0"></a></td>
+                <a href="https://en.qust.edu.cn/" target="_blank" rel="noopener"><IMG src="../Assets/logos/logo_QUST.png" height="66" border="0"></a></td>
+				<a href="https://english.cas.cn/" target="_blank" rel="noopener"><IMG src="../Assets/logos/logo_OUC.png" height="66" border="0"></a></td>
+                <a href="https://www.tamu.edu/" target="_blank" rel="noopener"><IMG src="../Assets/logos/logo_ATM.png" height="66" border="0"></a></td>
+			</div>
+
+			<div class="section head">
+
+				<h1>NeurCross: A Neural Approach to Computing Cross Fields for Quad Mesh Generation</h1>
+
+				<div class="authors">
+					<a href="https://qiujiedong.github.io/" itemprop="url" rel="noopener">Qiujie Dong</a><sup> 1,2</sup>&#160;&#160;
+					<a href="https://dblp.org/pid/378/1426.html" target="_blank" rel="noopener">Huibiao Wen</a><sup> 1</sup>&#160;&#160;
+                    <a href="https://ruixu.me/" target="_blank" rel="noopener">Rui Xu</a><sup> 2</sup>&#160;&#160;
+                    <a href="https://ieeexplore.ieee.org/author/37088955375" target="_blank" rel="noopener">Shuangmin Chen</a><sup> 3</sup>&#160;&#160;
+					<a href="https://jiaranzhou.github.io/" target="_blank" rel="noopener">Jiaran Zhou</a><sup> 4</sup>&#160;&#160;
+                    <a href="http://irc.cs.sdu.edu.cn/~shiqing/index.html" target="_blank" rel="noopener">Shiqing Xin</a><sup> 1</sup>&#160;&#160;
+					<a href="http://irc.cs.sdu.edu.cn/~chtu/index.html" target="_blank" rel="noopener">Changhe Tu</a><sup> 1</sup>&#160;&#160;
+					<br>
+					<a href="https://www.cs.hku.hk/index.php/people/academic-staff/taku" target="_blank" rel="noopener">Taku Komura</a><sup> 2</sup>&#160;&#160;
+                    <a href="https://engineering.tamu.edu/cse/profiles/Wang-Wenping.html" target="_blank" rel="noopener">Wenping Wang</a><sup> 5</sup>&#160;&#160;
+				</div>
+
+				<div class="affiliations">
+					<sup>1</sup><a href="https://www.en.sdu.edu.cn/" target="_blank" rel="noopener">Shandong University</a>&#160;&#160;
+					<sup>2</sup><a href="https://www.hku.hk/" target="_blank" rel="noopener">The University of Hong Kong</a>&#160;&#160;
+					<sup>3</sup><a href="https://en.qust.edu.cn/" target="_blank" rel="noopener">Qingdao University of Science and Technology</a>&#160;&#160;
+                    <br>
+					<sup>4</sup><a href="https://english.cas.cn/" target="_blank" rel="noopener">Ocean University of China</a>&#160;&#160;
+                    <sup>5</sup><a href="https://www.tamu.edu/" target="_blank" rel="noopener">Texas A&M University</a>&#160;&#160;
+				</div>
+				<div class="venue"> ACM Transactions on Graphics (SIGGRAPH 2025) </div>
+			</div>
+			<div class="section downloads" style="text-align:center">
+				<ul style="padding-left: 0">
+<!--					<li class="grid">-->
+<!--						<div class="griditem">-->
+<!--							<a href="https://dl.acm.org/doi/10.1145/3658171" itemprop="url" rel="noopener"><img src="../Assets/images/ACM.png"></a><br/>-->
+<!--							<a href="https://dl.acm.org/doi/10.1145/3658171" itemprop="url" rel="noopener">Paper</a>-->
+<!--						</div>-->
+<!--					</li>-->
+					<li class="grid">
+						<div class="griditem">
+							<a><img src="../Assets/images/ACM.png"></a><br/>
+							<a>Paper (Coming soon)</a>
+						</div>
+					</li>
+					<li class="grid">
+						<div class="griditem">
+							<a href="https://arxiv.org/abs/2405.13745" itemprop="url" rel="noopener"><img src="../Assets/images/arXiv.png"></a><br/>
+							<a href="https://arxiv.org/abs/2405.13745" itemprop="url" rel="noopener">arXiv</a>
+						</div>
+					</li>
+<!--					<li class="grid">-->
+<!--						<div class="griditem">-->
+<!--							<a href="https://github.com/QiujieDong/NeurCADRecon" itemprop="url" rel="noopener"><img src="../Assets/images/github.png"></a><br/>-->
+<!--							<a href="https://github.com/QiujieDong/NeurCADRecon" itemprop="url" rel="noopener">Code</a>-->
+
+<!--						</div>-->
+<!--					</li>-->
+					<li class="grid">
+						<div class="griditem">
+							<a><img src="../Assets/images/github.png"></a><br/>
+							<a>Code (Coming soon)</a>
+						</div>
+					</li>
+				</ul>
+			</div>
+
+
+			<div class="section abstract">
+				<h2>Abstract</h2><br>
+				<div class="row" style="margin-bottom:5px">
+					<div class="col" style="text-align:center">
+						<img class="thumbnail" src="figs/teaser.png" style="width:95%; margin-bottom:20px">
+					</div>
+
+				</div>
+				<p style="text-align:justify;">
+					Quadrilateral mesh generation plays a crucial role in numerical simulations within Computer-Aided Design
+					and Engineering (CAD/E). Achieving high-quality quadrangulation typically requires meeting at least four common criteria.
+					First, the quadrilateral mesh should closely align with the principal curvature directions. Second, singular points should
+					be well-placed and their number should be suppressed to some extent. Third, the quadrilateral mesh should conform to
+					sharp feature edges.
+					Lastly, the quadrangulation outcomes should exhibit insensitivity to noise and minor geometric variations.
+					Existing methods focus on first inferring a reliable cross field to depict the orientation of quad elements across
+					the surface and the extract a quad mesh that aligns with the computed cross field as closely as possible.
+					They face a critical challenge in properly balancing the regularity of the cross field with their alignment
+					to pre-computed principal curvature directions, particularly for geometrically or topologically complex shapes,
+					primarily because of the difficulty of pre-computing accurate and regular principal curvature directions immune to
+					small surface perturbations.
+					<br>
+					<br>
+					Instead of relying on a pre-computed principal direction field to guide subsequent cross field optimization,
+					we propose NeurCross, a novel self-supervised framework that simultaneously optimizes the regularity of the principle
+					curvature direction field and the corresponding cross field. This is made possible by employing an optimizable neural
+					signed distance function (SDF) to approximate the input surface. This neural SDF is capable of providing a
+					faithful and well-behaved curvature direction field via the simultaneous optimization framework to further enhance
+					the regularity of the resulting cross-field. Additionally, we utilize the Hessian matrix of the neural SDF to implicitly
+					enforce the alignment of the cross field with the principal curvature directions, bypassing explicit extraction of
+					principal direction fields to enable robust computation in regions where principal curvature directions are ill-defined,
+					e.g. spherical or planar regions. Extensive experiments demonstrate that NeurCross outperforms state-of-the-art methods
+					in terms of singular point placement, robustness to noise and geometric variations, and approximation accuracy.
+				</p>
+			</div>
+
+			<div class="section abstract">
+				<h2>Introduction</h2><br>
+
+				<p style="text-align:justify;">
+					In this paper, (1) We propose NeurCross, a self-supervised neural network for
+					learning cross fields. To the best of our knowledge, this is the first self-supervised approach based on a neural network for this task.
+					(2) We implicitly enforce alignment between the cross field and principal curvature directions via an SDF-based shape operator,
+					naturally addressing their potential ambiguity.
+					(3) We leverage the optimizable neural SDF as an underlying representation to coordinate various requirements,
+					which is dynamically adjusted to reduce sensitivity to minor surface variations.
+				</p>
+
+				<div class="row" style="margin-bottom:5px">
+					<div class="col" style="text-align:center">
+						<img class="thumbnail" src="figs/pipeline.png" style="width:95%; margin-bottom:20px">
+						<p>Our self-supervised network pipeline for representing cross fields in quad mesh generation.
+							All layers in the network are implemented as multi-layer perceptrons (MLPs),
+							with the SDF overfitting module utilizing the SIREN architecture.
+							The circled “+” symbol denotes a data-combining operation.</p>
+					</div>
+				</div>
+			</div>
+
+			<br>
+
+			<div class="section abstract">
+				<h2>Results</h2><br>
+
+					<div class="row" style="margin-bottom:5px">
+						<div class="col" style="text-align:center">
+							<img class="thumbnail" src="figs/ShapeNet.png" style="width:95%; margin-bottom:20px">
+							<p style="text-align:justify; text-align-last: center;">
+								Visualizing the quad mesh generated by our NeurCross and the other four methods on the table model
+								that comes from the ShapeNet dataset.
+							</p>
+						</div>
+
+						<div class="col" style="text-align:center">
+							<img class="thumbnail" src="figs/Thingi10k.png" style="width:95%; margin-bottom:20px">
+							<p style="text-align:justify; text-align-last: center;">
+								Visualization of the quad mesh generated by our NeurCross and four other methods on the Thingi10K dataset.
+								Existing approaches rely on principal curvature directions as input. However, due to the potential instability of these directions,
+								current methods often prioritize the coherence of principal curvature directions at the expense of their alignment.
+								To address this limitation, our approach avoids the explicit extraction of principal curvature directions.
+								Instead, we evaluate whether the cross at each point can serve as the eigenvectors of the shape operator.
+							</p>
+						</div>
+
+						<div class="col" style="text-align:center">
+							<img class="thumbnail" src="figs/IGM_learningMethod.png" style="width:95%; margin-bottom:20px">
+							<p style="text-align:justify; text-align-last: center;">
+								Our method is evaluated and compared against various state-ofthe-art methods using data provided by IGM (left)
+								and Dielen et al. [2021] (right).
+							</p>
+						</div>
+
+						<div class="col" style="text-align:center">
+							<img class="thumbnail" src="figs/singular_points.png" style="width:95%; margin-bottom:20px">
+							<p style="text-align:justify; text-align-last: center;">
+								Visualizing the quad mesh generated by all methods on the models from ShapeNet (the airplane model) and
+								Thingi10K (the grayloc model).
+								We also show the locations of singular points in the generated quad meshes,
+								where “# of Sings” denotes the number of singular points in the model.
+								Our meshes have relatively more singularities than MIQ but are better aligned with curvature/feature lines.
+							</p>
+						</div>
+
+						<div class="col" style="text-align:center">
+							<img class="thumbnail" src="figs/challenging_models.png" style="width:95%; margin-bottom:20px">
+							<p style="text-align:justify; text-align-last: center;">
+								Comparison of quad mesh generation methods is conducted on a variety of challenging models,
+								including those with high genus, thin shells, and non-orientable rings. Across all tests,
+								the quad meshes generated by our NeurCross on geometrically complex models consistently
+								exhibit higher quality compared to those produced by other methods.
+							</p>
+						</div>
+
+						<div class="col" style="text-align:center">
+							<img class="thumbnail" src="figs/resolution.png" style="width:95%; margin-bottom:20px">
+							<p style="text-align:justify; text-align-last: center;">
+								Visualizing the quad meshes generated by our NeurCross at different resolutions.
+								The low-resolution models contain fewer than 1,000 vertices, while the high-resolution
+								models consist of over 5,000 vertices.
+							</p>
+						</div>
+				</div>
+			</div>
+
+
+			<div class="section list">
+				<h2>Citation</h2>
+				<div class="section bibtex">
+<!--					<pre>-->
+<!--@ARTICLE{Dong2025NeurCross,-->
+<!--author={Dong, Qiujie and Wen, Huibiao and Xu, Rui and Chen, Shuangmin and Zhou, Jiaran and Xin, Shiqing and Tu, Changhe and Komura, Taku and Wang, Wenping},-->
+<!--title={NeurCross: A Neural Approach to Computing Cross Fields for Quad Mesh Generation},-->
+<!--journal={ACM Transactions on Graphics},-->
+<!--publisher = {Association for Computing Machinery},-->
+<!--address = {New York, NY, USA},-->
+<!--year={2025},-->
+<!--month={July},-->
+<!--volume = {43},-->
+<!--number={4},-->
+<!--doi={10.1145/3658171},-->
+<!--keywords = {quadrangulation, neural network, cross field, signed distance function, principal curvature}-->
+<!--}-->
+<!--						</pre>-->
+					<pre>
+@ARTICLE{Dong2025NeurCross,
+author={Dong, Qiujie and Wen, Huibiao and Xu, Rui and Chen, Shuangmin and Zhou, Jiaran and Xin, Shiqing and Tu, Changhe and Komura, Taku and Wang, Wenping},
+title={NeurCross: A Neural Approach to Computing Cross Fields for Quad Mesh Generation},
+journal={ACM Transactions on Graphics},
+publisher = {Association for Computing Machinery},
+address = {New York, NY, USA},
+year={2025},
+volume = {44},
+number={4},
+keywords = {quadrangulation, neural network, cross field, signed distance function, principal curvature}
+}					</pre>
+				</div>
+			</div>
+
+			<div class="section">
+				<hr class="smooth">
+				This page is maintained by <a href="https://qiujiedong.github.io/" itemprop="url" rel="noopener">Qiujie Dong</a>.
+			</div>
+		</div>
+	</div>
+</body>
+</html>
