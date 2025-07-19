@@ -1,0 +1,251 @@
+<!DOCTYPE html
+	PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+	<title>CrossGen: Learning and Generating Cross Fields for Quad Meshing</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<link rel="icon" type="image/png" href="/author/icon.jpg">
+
+	<!-- Fonts and stuff -->
+	<link href='http://fonts.googleapis.com/css?family=Open+Sans:400italic,700italic,800italic,400,700,800'
+		rel='stylesheet' type='text/css'>
+	<link rel="stylesheet" type="text/css" href="../../css/project.css" media="screen" />
+	<link rel="stylesheet" type="text/css" media="screen" href="../../css/iconize.css" />
+	<script src="js/google-code-prettify/prettify.js"></script>
+</head>
+
+<body>
+	<div id="content">
+		<div id="content-inner">
+			<div class="section logos" style="text-align:center">
+				<a href="https://www.hku.hk/" target="_blank" rel="noopener"><IMG src="../Assets/logos/logo_HKU.png" height="66" border="0"></a></td>
+				<a href="https://www.en.sdu.edu.cn/" target="_blank" rel="noopener"><IMG src="../Assets/logos/logo_SDU.png" height="66" border="0"></a></td>
+				<a href="https://hkust.edu.hk/" target="_blank" rel="noopener"><IMG src="../Assets/logos/logo_HKUST.png" height="66" border="0"></a></td>
+				<a href="https://wayne.edu/" target="_blank" rel="noopener"><IMG src="../Assets/logos/logo_WSU.png" height="66" border="0"></a></td>
+                <a href="https://www.tamu.edu/" target="_blank" rel="noopener"><IMG src="../Assets/logos/logo_TAMU.png" height="66" border="0"></a></td>
+				<a href="https://www.rwth-aachen.de/lang/en" target="_blank" rel="noopener"><IMG src="../Assets/logos/logo_RWTH.png" height="66" border="0"></a></td>
+			</div>
+
+			<div class="section head">
+
+				<h1>CrossGen: Learning and Generating Cross Fields for Quad Meshing</h1>
+
+				<div class="authors">
+					<a href="https://qiujiedong.github.io/" itemprop="url" rel="noopener">Qiujie Dong</a><sup> 1,2 *</sup>&#160;&#160;
+					<a href="https://jiepengwang.github.io/" target="_blank" rel="noopener">Jiepeng Wang</a><sup> 1, *, †</sup>&#160;&#160;
+                    <a href="https://ruixu.me/" target="_blank" rel="noopener">Rui Xu</a><sup> 1</sup>&#160;&#160;
+					<a href="https://clinplayer.github.io/" target="_blank" rel="noopener">Cheng Lin</a><sup> 1</sup>&#160;&#160;
+					<a href="https://liuyuan-pal.github.io/" target="_blank" rel="noopener">Yuan Liu</a><sup> 3</sup>&#160;&#160;
+                    <a href="http://irc.cs.sdu.edu.cn/~shiqing/index.html" target="_blank" rel="noopener">Shiqing Xin</a><sup> 2</sup>&#160;&#160;
+					<a href="https://zichunzhong.github.io/" target="_blank" rel="noopener">Zichun Zhong</a><sup> 4</sup>&#160;&#160;
+					<a href="https://people.tamu.edu/~xinli/" target="_blank" rel="noopener">Xin Li</a><sup> 5</sup>&#160;&#160;
+					<br>
+					<a href="http://irc.cs.sdu.edu.cn/~chtu/index.html" target="_blank" rel="noopener">Changhe Tu</a><sup> 2</sup>&#160;&#160;
+					<a href="https://www.cs.hku.hk/index.php/people/academic-staff/taku" target="_blank" rel="noopener">Taku Komura</a><sup> 1</sup>&#160;&#160;
+					<a href="https://www.graphics.rwth-aachen.de/person/3/" target="_blank" rel="noopener">Leif Kobbelt</a><sup> 6</sup>&#160;&#160;
+					<a href="https://engineering.tamu.edu/cse/profiles/sschaefer.html" target="_blank" rel="noopener">Scott Schaefer</a><sup> 5</sup>&#160;&#160;
+                    <a href="https://engineering.tamu.edu/cse/profiles/Wang-Wenping.html" target="_blank" rel="noopener">Wenping Wang</a><sup> 5, †</sup>&#160;&#160;
+
+				</div>
+
+				<div class="affiliations"><sup>*</sup>Equal contribution, <sup>†</sup>Corresponding author</div>
+
+				<div class="affiliations">
+					<sup>1</sup><a href="https://www.hku.hk/" target="_blank" rel="noopener">The University of Hong Kong</a>&#160;&#160;
+					<sup>2</sup><a href="https://www.en.sdu.edu.cn/" target="_blank" rel="noopener">Shandong University</a>&#160;&#160;
+					<sup>3</sup><a href="https://hkust.edu.hk/" target="_blank" rel="noopener">Hong Kong University of Science and Technology</a>&#160;&#160;
+                    <br>
+					<sup>4</sup><a href="https://wayne.edu/" target="_blank" rel="noopener">Wayne State University</a>&#160;&#160;
+                    <sup>5</sup><a href="https://www.tamu.edu/" target="_blank" rel="noopener">Texas A&M University</a>&#160;&#160;
+					<sup>6</sup><a href="https://www.rwth-aachen.de/lang/en" target="_blank" rel="noopener">RWTH Aachen University</a>&#160;&#160;
+
+				</div>
+			</div>
+			<div class="section downloads" style="text-align:center">
+				<ul style="padding-left: 0">
+					<li class="grid">
+						<div class="griditem">
+							<a href="https://arxiv.org/abs/2506.07020" itemprop="url" rel="noopener"><img src="../Assets/images/arXiv.png"></a><br/>
+							<a href="https://arxiv.org/abs/2506.07020" itemprop="url" rel="noopener">arXiv</a>
+						</div>
+					</li>
+				</ul>
+			</div>
+
+
+			<div class="section abstract">
+				<h2>Abstract</h2><br>
+				<p style="text-align:justify;">
+					Cross fields play a critical role in various geometry processing tasks, especially for quad mesh generation.
+					Existing methods for cross field generation often struggle to balance computational efficiency with generation quality, using slow per-shape optimization.
+					We introduce CrossGen, a novel framework that supports both feed-forward prediction and latent generative modeling of cross fields for quad meshing by unifying geometry and cross field representations within a joint latent space.
+					Our method enables extremely fast computation of high-quality cross fields of general input shapes, typically within one second
+					without per-shape optimization.
+					Our method assumes a point-sampled surface, or called a point-cloud surface, as input, so we can accommodate various different surface representations by a straightforward point sampling process.
+					Using an auto-encoder network architecture, we encode input point-cloud surfaces
+					into a sparse voxel grid with fine-grained latent spaces, which are decoded into both SDF-based surface geometry and cross fields.
+					We also contribute a dataset of models with both high-quality signed distance fields (SDFs) representations and their corresponding cross fields, and use it to train our network.
+					Once trained, the network is capable of computing a cross field of an input surface in a feed-forward manner, ensuring high geometric fidelity, noise resilience, and rapid inference.
+					Furthermore, leveraging the same unified latent representation, we incorporate a diffusion model for computing cross fields of new shapes generated from partial input, such as sketches.
+					To demonstrate its practical applications, we validate CrossGen on the quad mesh generation task for a large variety of surface shapes.
+					Experimental results demonstrate that CrossGen generalizes well across diverse shapes and consistently yields high-fidelity cross fields, thus facilitating the generation of high-quality quad meshes.
+				</p>
+				<div class="col" style="text-align:center">
+					<img class="thumbnail" src="figs/teaser.jpg" style="width:95%; margin-bottom:20px">
+					<p style="text-align:justify; text-align-last: center;">
+						Results produced by our method, CrossGen,
+					   that predicts cross fields on given shapes for quad meshing in a feed-forward manner without per shape optimization.
+						(a) Input shapes as  point cloud surfaces; (b) Cross fields generated by CrossGen; and (c) The resulting quad meshes.
+					   CrossGen demonstrates significant advantages in terms of efficiency and generalizability across various shape types,
+						enabling fast high-quality quad mesh generation for downstream applications.
+					</p>
+				</div>
+			</div>
+
+			<div class="section abstract">
+				<h2>Introduction</h2><br>
+
+				<p style="text-align:justify;">
+					In this paper, (1) We develop a novel auto-encoder network as the backbone of CrossGen for robust learning
+					of cross-fields of a large variety of input shapes.
+					Specifically, the unique design of the encoder with a local perception field enables CrossGen to
+					generalize well across diverse shape types and remain robust to out-of-domain inputs and rotational variations.
+					For inference, CrossGen computes a cross-field within one second, several orders of magnitude faster over
+					the state-of-the-art optimization-based methods.
+					(2) We contribute a training dataset of over 10,000 shapes annotated with high-quality SDFs and cross field, which is the first dataset of its kind.
+					(3) We present extensive validation and comparisons of CrossGen with the existing methods to demonstrate the efficacy of CrossGen in terms of efficiency and quality of the cross fields and quad meshes computed.
+				</p>
+
+				<div class="row" style="margin-bottom:5px">
+					<div class="col" style="text-align:center">
+						<img class="thumbnail" src="figs/pipeline.jpg" style="width:95%; margin-bottom:20px">
+						<p>Our network pipeline for learning and generating SDF and cross fields. Given a geometry input (mesh/point cloud) (a),
+							we first encode the local geometry into sparse grids of latent embeddings (b),
+							shown in light blue, and then decode these latent embeddings into a high-resolution feature grid (c),
+							which can be interpreted (d) into SDF and cross fields (e) for downstream quad mesh generation (f).
+						</p>
+					</div>
+				</div>
+			</div>
+
+			<br>
+
+			<div class="section abstract">
+				<h2>Results</h2><br>
+
+					<div class="row" style="margin-bottom:5px">
+						<div class="col" style="text-align:center">
+							<img class="thumbnail" src="figs/compare_cf.jpg" style="width:95%; margin-bottom:20px">
+							<p style="text-align:justify; text-align-last: center;">
+								Cross fields generated by six state-of-the-art methods and our CrossGen.
+								Both CrossGen and NeurCross, the ground truth provider for our dataset,
+								produce smooth cross fields that align well with the principal curvature directions.
+							</p>
+						</div>
+
+						<div class="col" style="text-align:center">
+							<img class="thumbnail" src="figs/compare_quad.jpg" style="width:95%; margin-bottom:20px">
+							<p style="text-align:justify; text-align-last: center;">
+								Quad meshes generated by six baseline methods and our CrossGen.
+								Benefiting from large-scale data-driven learning, our method produces smoother and more regular
+								quad meshes compared to all other approaches.
+							</p>
+						</div>
+
+						<div class="col" style="text-align:center">
+							<img class="thumbnail" src="figs/crossgen_point2quad.png" style="width:95%; margin-bottom:20px">
+							<p style="text-align:justify; text-align-last: center;">
+								<strong>Left:</strong> SDF and quad mesh results from point cloud input.
+								Since quad extraction requires triangular meshes, given a point-cloud surface (a),
+								we use the SDF branch to reconstruct a triangle mesh (b), and extract quad mesh (c).
+								(d) shows the extracted mesh from GT triangle mesh.
+								<strong>Right:</strong> Comparison with Point2Quad on CAD shapes.
+								Our method produces more regular, smoother, and principal curvature-aligned quad meshes,
+								whereas Point2Quad often results in meshes with more singularities.
+								The result for Point2Quad is obtained from its official code repository.
+							</p>
+						</div>
+
+						<div class="col" style="text-align:center">
+							<img class="thumbnail" src="figs/extractor.jpg" style="width:95%; margin-bottom:20px">
+							<p style="text-align:justify; text-align-last: center;">
+								Visualization of quad meshes generated for a free-form shape and a CAD-type shape by six baseline methods and our CrossGen.
+								The free-form quad mesh is extracted using libQEx, while the CAD-type quad mesh is extracted using QuadWild.
+							</p>
+						</div>
+
+						<div class="col" style="text-align:center">
+							<img class="thumbnail" src="figs/missing_points_and_sparse_sample_noise.png" style="width:95%; margin-bottom:20px">
+							<p style="text-align:justify; text-align-last: center;">
+								<strong>Left:</strong> Quad meshes generated by our method under varying input conditions.
+								From left to right: (a) the original point cloud with 150K points;
+								(b) a point cloud with missing regions (highlighted in light violet);
+								and (c) a sparse point cloud with 10K points.
+								<strong>Right:</strong> Cross field generation from noisy point cloud input. Given noisy input (a),
+								Poisson reconstruction produces a noisy surface (b),
+								whereas our SDF branch reconstructs a smooth geometry (c).
+								Surface points sampled from our geometry enable accurate cross field prediction (d) and subsequent quad meshing (e),
+								demonstrating robust cross field generation from noisy data.
+							</p>
+						</div>
+
+						<div class="col" style="text-align:center">
+							<img class="thumbnail" src="figs/rotation_out_domain_open.png" style="width:95%; margin-bottom:20px">
+							<p style="text-align:justify; text-align-last: center;">
+								<strong>Left:</strong> Visualization of quad meshes generated by our CrossGen under random poses,
+								including both non-rigid deformation and rigid rotation.
+								<strong>Middle:</strong> Out-of-domain generalization of our CrossGen on unseen shape categories.
+								<strong>Right:</strong> Cross field generation on surfaces with open boundaries by our CrossGen.
+								Our method robustly generalizes to open-boundary surfaces, enabling high-quality quad mesh extraction
+								from the predicted cross fields.
+							</p>
+						</div>
+
+						<div class="col" style="text-align:center">
+							<img class="thumbnail" src="figs/diffusion_pipeline.jpg" style="width:95%; margin-bottom:20px">
+							<p style="text-align:justify; text-align-last: center;">
+								The sketch-conditioned diffusion pipeline in our CrossGen,
+								following LAS-Diffusion.
+								(a) Occupancy diffusion conditioned on the input sketch: predicts coarse voxel structure to capture
+								global shape layout from dense voxel noise.
+								(b) Sparse latent diffusion: refines geometry and cross field information from sparse latent noise in the latent space.
+								(c) Shape decoding: converts denoised latent codes into a 3D shape and corresponding cross field via our pretrained decoder.
+							</p>
+						</div>
+
+						<div class="col" style="text-align:center">
+							<img class="thumbnail" src="figs/generated_by_diffusion_limitation.png" style="width:95%; margin-bottom:20px">
+							<p style="text-align:justify; text-align-last: center;">
+								<strong>Left:</strong> The quad meshes are generated by our CrossGen via sketch-conditioned diffusion.
+								<strong>Right:</strong> Failure case. Our method struggles in the presence of fine-grained geometric details,
+								resulting in quad mesh that lack smoothness and global consistency.
+							</p>
+						</div>
+				</div>
+			</div>
+
+
+			<div class="section list">
+				<h2>Citation</h2>
+				<div class="section bibtex">
+
+
+					<pre>
+@article{Dong2025CrossGen,
+  author={Dong, Qiujie and Wang, Jiepeng and Xu, Rui and Lin, Cheng and Liu, Yuan and Xin, Shiqing and Zhong, Zichun and Li, Xin and Tu, Changhe and Komura, Taku and Kobbelt, Leif and Schaefer, Scott and Wang, Wenping},
+  title={CrossGen: Learning and Generating Cross Fields for Quad Meshing},
+  journal={arXiv e-prints},
+  year={2025}
+}					</pre>
+				</div>
+			</div>
+
+			<div class="section">
+				<hr class="smooth">
+				This page is maintained by <a href="https://qiujiedong.github.io/" itemprop="url" rel="noopener">Qiujie Dong</a>.
+			</div>
+		</div>
+	</div>
+</body>
+</html>
