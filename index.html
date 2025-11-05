@@ -282,12 +282,26 @@
     <div class="container">
         <div class="row">
             <div class="col-12 section-heading">
-                <h3>Publications</h3>
-                <div class="article-style" itemprop="articleBody" style="font-size:18px; padding: 10px 0px 0px 0px;">
-                    <sup>*</sup> Equal contribution. <sup>†</sup> Corresponding author. <!--<sup>‡</sup> Project lead.-->
+              <div class="pub-header">
+                <div class="pub-left">
+                  <h3>Publications</h3>
+                  <div class="article-style" itemprop="articleBody" style="font-size:18px;">
+                    <sup>*</sup> Equal contribution. <sup>†</sup> Corresponding author.
+                  </div>
                 </div>
-                <hr>
+
+                <div class="pub-toggle">
+                  <label class="switch">
+                    <input type="checkbox" id="toggleSelected">
+                    <span class="slider"></span>
+                  </label>
+                  <span class="toggle-label">Selected Publications</span>
+                </div>
+              </div>
+
+              <hr>
             </div>
+
 
             <div class="col-12">
 
@@ -397,7 +411,7 @@
                 </div>
 
 
-                <div class="media stream-item" itemscope itemtype="http://schema.org/ScholarlyArticle">
+                <div class="media stream-item selected" itemscope itemtype="http://schema.org/ScholarlyArticle">
                     <div class="media-body row">
                         <div class="col-lg-3" style="padding: 10px 0px 10px 20px;">
 <!--                            <div class="tag">TOG</div>-->
@@ -625,7 +639,7 @@
 
 
 
-                <div class="media stream-item" itemscope itemtype="http://schema.org/ScholarlyArticle">
+                <div class="media stream-item selected" itemscope itemtype="http://schema.org/ScholarlyArticle">
                     <div class="media-body row">
                         <div class="col-lg-3" style="padding: 10px 0px 10px 20px;">
 <!--                            <div class="tag">TOG</div>-->
@@ -718,7 +732,7 @@
 
 
 
-                <div class="media stream-item" itemscope itemtype="http://schema.org/ScholarlyArticle">
+                <div class="media stream-item selected" itemscope itemtype="http://schema.org/ScholarlyArticle">
                     <div class="media-body row">
                         <div class="col-lg-3" style="padding: 10px 0px 0px 20px;">
                             <div class="photo-frame">
@@ -769,7 +783,7 @@
                 </div>
 
 
-                <div class="media stream-item" itemscope itemtype="http://schema.org/ScholarlyArticle">
+                <div class="media stream-item selected" itemscope itemtype="http://schema.org/ScholarlyArticle">
                     <div class="media-body row">
                         <div class="col-lg-3" style="padding: 10px 0px 10px 20px;">
                             <div class="photo-frame">
@@ -1004,7 +1018,7 @@
                 </div>
 
 
-                <div class="media stream-item" itemscope itemtype="http://schema.org/ScholarlyArticle">
+                <div class="media stream-item selected" itemscope itemtype="http://schema.org/ScholarlyArticle">
                     <div class="media-body row">
                         <div class="col-lg-3" style="padding: 18px 0px 0px 20px;">
                             <div class="photo-frame">
@@ -1180,7 +1194,7 @@
                 </div>
 
 
-                <div class="media stream-item" itemscope itemtype="http://schema.org/ScholarlyArticle">
+                <div class="media stream-item selected" itemscope itemtype="http://schema.org/ScholarlyArticle">
                     <div class="media-body row">
                         <div class="col-lg-3" style="padding: 10px 0px 10px 20px;">
                             <div class="photo-frame">
@@ -1273,7 +1287,7 @@
                 </div>
 
 
-                <div class="media stream-item" itemscope itemtype="http://schema.org/ScholarlyArticle">
+                <div class="media stream-item selected" itemscope itemtype="http://schema.org/ScholarlyArticle">
                     <div class="media-body row">
                         <div class="col-lg-3" style="padding: 0px 0px 10px 20px;">
                             <div class="photo-frame">
@@ -1760,6 +1774,25 @@
 <script>hljs.initHighlightingOnLoad();</script>
 <!--<script src="/js/academic.min.01d176c6a39ffaaa2714dda311205d60.js"></script>-->
 <script src="/js/wowchemy-publication.68f8d7090562ca65fc6d3cb3f8f2d2cb.js" type="module"></script>
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+  const toggle = document.getElementById("toggleSelected");
+  const allPubs = document.querySelectorAll(".stream-item");
+
+  toggle.addEventListener("change", function() {
+    if (this.checked) {
+      allPubs.forEach(pub => {
+        if (!pub.classList.contains("selected")) {
+          pub.style.display = "none";
+        }
+      });
+    } else {
+      allPubs.forEach(pub => pub.style.display = "block");
+    }
+  });
+});
+</script>
+
 
 </body>
 
