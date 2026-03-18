@@ -125,6 +125,25 @@ a:focus {
   color: #2962ff;
 }
 
+.biography-content a.bio-link,
+.biography-content a.bio-link:visited {
+  color: #000;
+  text-decoration: none;
+}
+
+.biography-content a.bio-link:hover,
+.biography-content a.bio-link:focus {
+  color: #000;
+  text-decoration: underline;
+  text-decoration-thickness: 0.08em;
+  text-underline-offset: 0.12em;
+}
+
+.biography-content a.bio-link strong {
+  color: inherit;
+  font-weight: 700;
+}
+
 img,
 video {
   height: auto;
