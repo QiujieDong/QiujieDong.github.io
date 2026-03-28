@@ -46,7 +46,14 @@
     haiyan_ge: { name: "Haiyan Ge", url: null },
     qin_liu: { name: "Qin Liu", url: null },
     aifu_han: { name: "Aifu Han", url: "https://scholar.google.com/citations?user=mECfaHkAAAAJ&hl" },
-    shengzong_zhou: { name: "Shengzong Zhou", url: "https://orcid.org/0009-0002-3623-5568" }
+    shengzong_zhou: { name: "Shengzong Zhou", url: "https://orcid.org/0009-0002-3623-5568" },
+      dafei_qin: { name: "Dafei Qin", url: "https://dafei-qin.github.io/" },
+      kaichun_qiao: { name: "Kaichun Qiao", url: "https://dolphinqiao.github.io/" },
+      huaijin_pi: { name: "Huaijin Pi", url: "https://phj128.github.io/" },
+      qixuan_zhang: { name: "Qixuan Zhang", url: "https://scholar.google.com/citations?user=YvwsqvYAAAAJ&hl=zh-CN" },
+      longwen_zhang: { name: "Longwen Zhang", url: "https://zhanglongwen.com/" },
+      lan_xu: { name: "Lan Xu", url: "http://xu-lan.com/" },
+      jingyi_yu: { name: "Jingyi Yu", url: "https://www.yu-jingyi.com/" },
   });
 
   function escapeHtml(value) {
