@@ -735,9 +735,13 @@ a.hero-cta-alt:hover {
   position: relative;
 }
 
+.about-profile-row {
+  align-items: center;
+}
+
 .portrait {
-  width: 200px;
-  height: 200px;
+  width: 220px;
+  height: 220px;
   margin: 0 auto;
   border-radius: 50%;
   object-fit: cover;
@@ -762,6 +766,8 @@ ul.network-icon {
   flex-direction: row;
   flex-wrap: wrap;
   justify-content: center;
+  align-items: center;
+  gap: 0.6rem;
   list-style: none;
   padding: 0;
 }
@@ -771,10 +777,7 @@ ul.network-icon {
 }
 
 .network-icon li {
-  margin-right: 10px;
-}
-
-.network-icon li:last-of-type {
+  flex: 0 0 auto;
   margin-right: 0;
 }
 
@@ -784,6 +787,57 @@ ul.network-icon {
 
 .big-icon {
   font-size: 2rem;
+}
+
+.network-badge {
+  min-height: 1.7rem;
+  padding: 0 0.55rem;
+  border: 1px solid #d9dde3;
+  border-radius: 999px;
+  background: #f2f3f5;
+  color: #6c757d;
+  font-size: 0.7rem;
+  font-weight: 600;
+  line-height: 1;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  white-space: nowrap;
+  transition: background-color 0.2s ease, color 0.2s ease, border-color 0.2s ease;
+}
+
+.network-badge:hover,
+.network-badge:focus {
+  background: #e8eaed;
+  border-color: #cfd4da;
+  color: #495057;
+  text-decoration: none;
+}
+
+.network-icon li.network-badge-item:hover {
+  transform: none;
+}
+
+.profile-network-icon {
+  padding-left: 20px;
+}
+
+@media (min-width: 992px) {
+  #profile {
+    text-align: left;
+  }
+
+  .profile-network-icon {
+    flex-wrap: nowrap;
+    justify-content: flex-start;
+  }
+
+  .portrait {
+    width: 215px;
+    height: 215px;
+    margin: 0;
+  }
 }
 
 ul.ul-interests li {
