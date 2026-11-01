@@ -54,6 +54,11 @@
       longwen_zhang: { name: "Longwen Zhang", url: "https://zhanglongwen.com/" },
       lan_xu: { name: "Lan Xu", url: "http://xu-lan.com/" },
       jingyi_yu: { name: "Jingyi Yu", url: "https://www.yu-jingyi.com/" },
+      haodong_zhang: { name: "Haodong Zhang", url: null },
+      wenchen_li: { name: "Wenchen Li", url: null },
+      minghua_liu: { name: "Minghua Liu", url: null },
+      qiang_hu: { name: "Qiang Hu", url: null },
+      jingjing_wang: { name: "Jingjing Wang", url: "https://www.researchgate.net/profile/Jingjing-Wang-3" },
   });
 
   function escapeHtml(value) {
