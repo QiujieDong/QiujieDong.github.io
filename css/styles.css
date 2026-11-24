@@ -2723,6 +2723,20 @@ input:checked + .slider:before {
   line-height: 1;
 }
 
+#publications .publication-group-title {
+  margin: 0 0 .75rem;
+  color: #313131;
+}
+
+#publications .publication-year > .publication-group-title {
+  border-top: 1px solid rgba(0, 0, 0, .14);
+  padding-top: .45rem;
+}
+
+#publications .publication-year:not(:has(> .stream-item)) {
+  display: none;
+}
+
 
 
 

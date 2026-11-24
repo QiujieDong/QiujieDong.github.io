@@ -3,6 +3,13 @@
   // ^* => equal contribution, ^d => corresponding author.
   const AUTHOR_REGISTRY = Object.freeze({
     qiujie_dong: { name: "Qiujie Dong", url: "https://qiujiedong.github.io/", highlight: true, noLink: true },
+    yiheng_zhang: { name: "Yiheng Zhang", url: "https://graphic-kiliani.github.io/homepage/" },
+    tingrui_shen: { name: "Tingrui Shen", url: "https://trshen925.github.io/" },
+    zhuojiang_cai: { name: "Zhuojiang Cai", url: "https://caizhuojiang.com/" },
+    tianxiao_li: { name: "Tianxiao Li", url: "https://github.com/tingyunaiai9" },
+    zixing_zhao: { name: "Zixing Zhao", url: "https://github.com/Zazexy/" },
+    yuwang_wang: { name: "Yuwang Wang", url: "https://media.au.tsinghua.edu.cn/info/1011/1176.htm" },
+    jian_liu: { name: "Jian Liu", url: "https://jianliu2006.github.io/" },
     rui_xu: { name: "Rui Xu", url: "https://ruixu.me/" },
     tianyang_xue: { name: "Tianyang Xue", url: "https://xty.im/" },
     le_wan: { name: "Le Wan", url: null },
